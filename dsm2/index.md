@@ -1,6 +1,6 @@
 # General Description
 
-[DSM2](http://baydeltaoffice.water.ca.gov/modeling/deltamodeling/models/dsm2v6/dsm2.cfm) is a river, estuary, and land modeling system.
+[DSM2](https://water.ca.gov/Library/Modeling-and-Analysis/Bay-Delta-Region-models-and-tools/Delta-Simulation-Model-II) is a river, estuary, and land modeling system.
 
 *   _River_ - Can simulate riverine systems, and has been extended from Sacramento to Shasta Dam. Also has been tested with high flow/stage simulations for flood modeling.
 *   _Estuary_ - Completely flexible estuary model; stages and flows may be specified at boundary and internal points.
