@@ -15,7 +15,7 @@
 See this [page](dsm2/installing.md) to learn how to install DSM2
 
 # Bay Delta Schism
-https://cadwrdeltamodeling.github.io/BayDeltaSCHISM/html/index.html
+[Bay Delta Schism Documentation](https://cadwrdeltamodeling.github.io/BayDeltaSCHISM/html/index.html)
 
 # DETAW & D/SM CD model
 Coming soon...
