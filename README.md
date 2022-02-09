@@ -9,6 +9,8 @@
 [Delta 101 Bay Delta Science Conference Presentation](https://youtu.be/ZiT2GxjiQlY) by Dr Ted Sommers
 
 # DSM2
+## Introduction
+[DSM2 documentation](dsm2)
 ## Installing DSM2
 See this [page](dsm2/installing.md) to learn how to install DSM2
 
