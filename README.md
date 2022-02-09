@@ -12,3 +12,6 @@
 ## DSM2
 ### Installing DSM2
 See this [page](dsm2/installing.md) to learn how to install DSM2
+
+## Bay Delta Schism
+https://cadwrdeltamodeling.github.io/BayDeltaSCHISM/html/index.html
