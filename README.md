@@ -7,7 +7,8 @@
 * [Delta Water Quality Standards](https://youtu.be/NyQIJQa6Qy4?t=1441)
 * [Controls for Water Quality](https://youtu.be/NyQIJQa6Qy4?t=1668)
 * [Modeling](https://youtu.be/NyQIJQa6Qy4?t=1781)
-* 
+
+[Delta 101 Bay Delta Science Conference Presentation](https://youtu.be/ZiT2GxjiQlY) by Dr Ted Sommers
 ## DSM2
 ### Installing DSM2
 See this [page](dsm2/installing.md) to learn how to install DSM2
