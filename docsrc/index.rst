@@ -39,6 +39,10 @@ DETAW & D/SM CD Model
 
 Coming soon....
 
+Python usage
+------------
+
+
 Python modules
 ---------------
 * `vtools3 <https://cadwrdeltamodeling.github.io/vtools3/>`_: Time series functions such as godin and cosine-lanczos filters
