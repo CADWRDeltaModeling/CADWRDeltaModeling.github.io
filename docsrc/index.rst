@@ -60,7 +60,7 @@ Python modules
    :maxdepth: 2
    :caption: Contents:
 
-
+   DSM2 <https://github.com/CADWRDeltaModeling/CADWRDeltaModeling.github.io/blob/master/dsm2>
 
 Indices and tables
 ==================
