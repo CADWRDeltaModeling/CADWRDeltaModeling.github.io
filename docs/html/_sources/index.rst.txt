@@ -4,7 +4,7 @@
    contain the root `toctree` directive.
 
 ####################################
-Delta Modeling GitHub Knowledge Base
+Delta Modeling Documentation Roadmap
 ####################################
 
 Delta Modeling Section Models
