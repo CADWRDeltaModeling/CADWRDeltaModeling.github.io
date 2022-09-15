@@ -74,11 +74,3 @@ Learning About the Bay-Delta and Models
    :caption: Learning about the Bay-Delta
    
 
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
