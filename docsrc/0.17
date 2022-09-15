@@ -1,0 +1,19 @@
+Collecting package metadata (current_repodata.json): ...working... done
+Solving environment: ...working... done
+
+## Package Plan ##
+
+  environment location: C:\Users\eli\miniconda3\envs\schimpy_env
+
+  added / updated specs:
+    - docutils
+
+
+The following packages will be UPDATED:
+
+  docutils                            0.18.1-py37haa95532_2 --> 0.18.1-py37haa95532_3
+
+
+Proceed ([y]/n)? Terminate batch job (Y/N)? 
+Terminate batch job (Y/N)? 
+(schimpy_env) d:\Delta\models\CADWRDeltaModeling.github.io\docsrc>
