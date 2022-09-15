@@ -99,17 +99,16 @@
 <p class="caption" role="heading"><span class="caption-text">General documentation</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="python.html">Python Configuration and Usage</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Creating/Edit Documentation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Creating/Edit Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#python">Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sphinx">Sphinx</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#running-sphinx">Running Sphinx</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#restructured-text-markdown">ReStructured Text Markdown</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Learning about the Bay-Delta</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference external" href="https://youtu.be/NyQIJQa6Qy4">An overview of the Sacramento-San Joaquin Delta (California, U.S.) and the Delta Simulation Model II (DSM2)</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://youtu.be/NyQIJQa6Qy4?t=776">Tidal Cycles</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://youtu.be/NyQIJQa6Qy4?t=1009">Delta Inflows &amp; Exports</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://youtu.be/NyQIJQa6Qy4?t=1441">Delta Water Quality Standards</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://youtu.be/NyQIJQa6Qy4?t=1668">Controls for Water Quality</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://youtu.be/NyQIJQa6Qy4?t=1781">Modeling</a></li>
-<li class="toctree-l1"><a class="reference external" href="Delta 101 Bay Delta Science Conference Presentation &lt;https://youtu.be/ZiT2GxjiQlY&gt; by Dr. Ted Sommers">Delta 101 Bay Delta Science Conference Presentation &lt;https://youtu.be/ZiT2GxjiQlY&gt; by Dr. Ted Sommers</a></li>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#git-and-github">Git and GitHub</a></li>
+</ul>
+</li>
 </ul>
 
             
@@ -176,6 +175,37 @@
             
   <section id="creating-edit-documentation">
 <h1>Creating/Edit Documentation<a class="headerlink" href="#creating-edit-documentation" title="Permalink to this heading">¶</a></h1>
+<p>We use Sphinx to create documentation across all our products. Here is what you need to know to participate:</p>
+<section id="python">
+<h2>Python<a class="headerlink" href="#python" title="Permalink to this heading">¶</a></h2>
+<p>You need to have Python on your system, as it is the engine of Sphinx. We recommend you follow our <span class="xref std std-ref">python</span> guidelines for setting up Python using miniconda. This documentation describes what a Python environment is, and a sufficient environment for documenting all our products is represented by environment.yml. This includes the installation of sphinx.</p>
+</section>
+<section id="sphinx">
+<h2>Sphinx<a class="headerlink" href="#sphinx" title="Permalink to this heading">¶</a></h2>
+<p>This documentation was created using <a class="reference external" href="https://www.sphinx-doc.org/en/master/">sphinx</a> which is a python-based documentation tool originally facilitating the documentation of Python projects but now used for manual production in general, a big example being <cite>ReadTheDocs &lt;https://readthedocs.org&gt;</cite> which adds templates and version control. Sphinx has powerful ways of embedding documentation from python functions, youtube tutorials, images etc. There are graphical tools for previewing (e.g. sublime) but little in-house experience with them.</p>
+<section id="running-sphinx">
+<h3>Running Sphinx<a class="headerlink" href="#running-sphinx" title="Permalink to this heading">¶</a></h3>
+<p>There isn’t much to this:</p>
+<ul class="simple">
+<li><p>We typically install sphinx using conda</p></li>
+<li><p>For new projects, there are some configuration steps, which are best tackled using the Sphinx online documentation and refering to another project.</p></li>
+<li><p>The build is usually very simple. It is done from the /docsrc directory on a conda command prompt and done either with the commands <cite>make html</cite> or <cite>doall.bat</cite>.</p></li>
+</ul>
+</section>
+<section id="restructured-text-markdown">
+<h3>ReStructured Text Markdown<a class="headerlink" href="#restructured-text-markdown" title="Permalink to this heading">¶</a></h3>
+<p>The actual text you will be editing is often in <a href="#id2"><span class="problematic" id="id3">*</span></a>.rst files inside a directory called .docsrc. Format and structure of documentation in Sphinx is based on <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html">ReStructured Text</a> markdown language, which provides for things like section headers, table of contents and cross-references. Tutorials and anuals are widely available</p>
+</section>
+</section>
+<section id="git-and-github">
+<h2>Git and GitHub<a class="headerlink" href="#git-and-github" title="Permalink to this heading">¶</a></h2>
+<p>The documentation is delivered through Git and GitHub. The basic actions you would need to be able to do are:
+#. Clone the repository containing the documentation.
+#. Edit and add files (text and figures) to the documentation directory, often called /docsrc.
+#. Build the documetnation by launching sphinx in that directory (often a script called doall.bat or the command <cite>make html</cite>, generating html and other webe products in a directory called /docs
+#. Go through the sequence that moves it back to GitHub: add locally, commit locally and “push”.
+#. The server side stuff is magic unless you are creating a new repo, in which case you should learn about GitHub Pages. In that case, for consistency please follow the general layout (docsrc and docs) and point to the same branch (master) as we do for other products.</p>
+</section>
 </section>
 
 

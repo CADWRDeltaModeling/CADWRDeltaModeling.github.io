@@ -22,7 +22,7 @@ DSM2
 .. toctree::
    :maxdepth: 1
 
-   DSM2 documentation <https://github.com/CADWRDeltaModeling/CADWRDeltaModeling.github.io/blob/master/dsm2>
+   DSM2 documentation on the DWR site <https://github.com/CADWRDeltaModeling/CADWRDeltaModeling.github.io/blob/master/dsm2>
 
 .. _dcd:
 

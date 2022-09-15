@@ -7,6 +7,16 @@
 Delta Modeling Documentation Roadmap
 ####################################
 
+Welcome to the Delta Modeling Section GitHub Documentation Roadmap. This project, which began
+in September 2022, holds interconnecting links between documentation our most important projects, 
+information on the toolchain (hints, installation and pointers to documentation), 
+background information for the models, learning resources and tutorials.
+
+This page holds meta-documenatation. Not much model-specific material is housed here.  However,
+some items that transcend any individual project (background on the Delta, coding standards for the group and
+Python instructions) are kept here.
+
+
 Delta Modeling Section Models
 ******************************
 
