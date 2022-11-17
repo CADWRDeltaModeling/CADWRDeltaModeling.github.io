@@ -5,8 +5,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Creating/Edit Documentation &mdash; DWR Delta Modeling Base Page 0.1 documentation</title>
@@ -173,17 +172,17 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section id="creating-edit-documentation">
+  <div class="section" id="creating-edit-documentation">
 <h1>Creating/Edit Documentation<a class="headerlink" href="#creating-edit-documentation" title="Permalink to this heading">¶</a></h1>
 <p>We use Sphinx to create documentation across all our products. Here is what you need to know to participate:</p>
-<section id="python">
+<div class="section" id="python">
 <h2>Python<a class="headerlink" href="#python" title="Permalink to this heading">¶</a></h2>
 <p>You need to have Python on your system, as it is the engine of Sphinx. We recommend you follow our <span class="xref std std-ref">python</span> guidelines for setting up Python using miniconda. This documentation describes what a Python environment is, and a sufficient environment for documenting all our products is represented by environment.yml. This includes the installation of sphinx.</p>
-</section>
-<section id="sphinx">
+</div>
+<div class="section" id="sphinx">
 <h2>Sphinx<a class="headerlink" href="#sphinx" title="Permalink to this heading">¶</a></h2>
 <p>This documentation was created using <a class="reference external" href="https://www.sphinx-doc.org/en/master/">sphinx</a> which is a python-based documentation tool originally facilitating the documentation of Python projects but now used for manual production in general, a big example being <cite>ReadTheDocs &lt;https://readthedocs.org&gt;</cite> which adds templates and version control. Sphinx has powerful ways of embedding documentation from python functions, youtube tutorials, images etc. There are graphical tools for previewing (e.g. sublime) but little in-house experience with them.</p>
-<section id="running-sphinx">
+<div class="section" id="running-sphinx">
 <h3>Running Sphinx<a class="headerlink" href="#running-sphinx" title="Permalink to this heading">¶</a></h3>
 <p>There isn’t much to this:</p>
 <ul class="simple">
@@ -191,13 +190,13 @@
 <li><p>For new projects, there are some configuration steps, which are best tackled using the Sphinx online documentation and refering to another project.</p></li>
 <li><p>The build is usually very simple. It is done from the /docsrc directory on a conda command prompt and done either with the commands <cite>make html</cite> or <cite>doall.bat</cite>.</p></li>
 </ul>
-</section>
-<section id="restructured-text-markdown">
+</div>
+<div class="section" id="restructured-text-markdown">
 <h3>ReStructured Text Markdown<a class="headerlink" href="#restructured-text-markdown" title="Permalink to this heading">¶</a></h3>
 <p>The actual text you will be editing is often in <a href="#id2"><span class="problematic" id="id3">*</span></a>.rst files inside a directory called .docsrc. Format and structure of documentation in Sphinx is based on <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html">ReStructured Text</a> markdown language, which provides for things like section headers, table of contents and cross-references. Tutorials and anuals are widely available</p>
-</section>
-</section>
-<section id="git-and-github">
+</div>
+</div>
+<div class="section" id="git-and-github">
 <h2>Git and GitHub<a class="headerlink" href="#git-and-github" title="Permalink to this heading">¶</a></h2>
 <p>The documentation is delivered through Git and GitHub. The basic actions you would need to be able to do are:
 #. Clone the repository containing the documentation.
@@ -205,8 +204,8 @@
 #. Build the documetnation by launching sphinx in that directory (often a script called doall.bat or the command <cite>make html</cite>, generating html and other webe products in a directory called /docs
 #. Go through the sequence that moves it back to GitHub: add locally, commit locally and “push”.
 #. The server side stuff is magic unless you are creating a new repo, in which case you should learn about GitHub Pages. In that case, for consistency please follow the general layout (docsrc and docs) and point to the same branch (master) as we do for other products.</p>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>
