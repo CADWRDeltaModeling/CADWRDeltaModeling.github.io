@@ -201,7 +201,7 @@ systems such as PyPi is in the works, but minimally supported at this time.</p>
 <h2>Bottom line for experienced users<a class="headerlink" href="#bottom-line-for-experienced-users" title="Permalink to this heading">¶</a></h2>
 <section id="use-miniconda-with-environments">
 <h3>Use miniconda with environments<a class="headerlink" href="#use-miniconda-with-environments" title="Permalink to this heading">¶</a></h3>
-<p><a class="reference external" href="https://docs.conda.io/en/latest/miniconda.html">Miniconda</a> is a combination of a very lean python plus a package manager. Installers for miniconda are easily found online. Many of our larger projects come with environment.yml files in their base directories, which list the preprequisite libraries you would need. The BayDeltaSCHISM project provides a monolith that is known to successfully install and covers a lot of the tools used with SCHISM such as schimpy.</p>
+<p><a class="reference external" href="https://docs.conda.io/en/latest/miniconda.html">Miniconda</a> is a python installation that serves as both a very lean python plus a package manager. Installers for miniconda are easily found online. Many of our larger projects come with environment.yml files in their base directories, which list the preprequisite libraries you would need. The BayDeltaSCHISM project provides a monolith that is known to successfully install and covers a lot of the tools used with SCHISM such as schimpy.</p>
 <p>Use the command below to create an environment (with name my_env_name):</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">env</span> <span class="n">create</span> <span class="o">-</span><span class="n">n</span> <span class="n">my_env_name</span> <span class="o">-</span><span class="n">f</span> <span class="n">environment</span><span class="o">.</span><span class="n">yml</span>
 </pre></div>
@@ -255,7 +255,11 @@ $ conda config --env --set channel_priority strict
 </section>
 <section id="developer-installs">
 <h2>Developer installs<a class="headerlink" href="#developer-installs" title="Permalink to this heading">¶</a></h2>
-<p>For aspiring developers, installing using conda may be very inconvenient. The</p>
+<p>For aspiring developers, installing libraries through GitHub is convenient. We use:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$pip install --no-deps -e .
+</pre></div>
+</div>
+<p>for this</p>
 </section>
 <section id="coding-standards">
 <h2>Coding standards<a class="headerlink" href="#coding-standards" title="Permalink to this heading">¶</a></h2>

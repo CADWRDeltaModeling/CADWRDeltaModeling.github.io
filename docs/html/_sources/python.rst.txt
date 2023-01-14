@@ -22,7 +22,7 @@ Bottom line for experienced users
 Use miniconda with environments
 -------------------------------
 
-`Miniconda <https://docs.conda.io/en/latest/miniconda.html>`_ is a combination of a very lean python plus a package manager. Installers for miniconda are easily found online. Many of our larger projects come with environment.yml files in their base directories, which list the preprequisite libraries you would need. The BayDeltaSCHISM project provides a monolith that is known to successfully install and covers a lot of the tools used with SCHISM such as schimpy. 
+`Miniconda <https://docs.conda.io/en/latest/miniconda.html>`_ is a python installation that serves as both a very lean python plus a package manager. Installers for miniconda are easily found online. Many of our larger projects come with environment.yml files in their base directories, which list the preprequisite libraries you would need. The BayDeltaSCHISM project provides a monolith that is known to successfully install and covers a lot of the tools used with SCHISM such as schimpy. 
 
 Use the command below to create an environment (with name my_env_name)::
 
@@ -84,7 +84,11 @@ A miniconda base environment will be very stripped down so that it never breaks.
 Developer installs
 ##################
 
-For aspiring developers, installing using conda may be very inconvenient. The
+For aspiring developers, installing libraries through GitHub is convenient. We use::
+
+  $pip install --no-deps -e .
+  
+for this
 
 
 Coding standards

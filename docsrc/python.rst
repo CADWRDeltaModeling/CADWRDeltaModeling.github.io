@@ -84,7 +84,11 @@ A miniconda base environment will be very stripped down so that it never breaks.
 Developer installs
 ##################
 
-For aspiring developers, installing using conda may be very inconvenient. The
+For aspiring developers, installing libraries through GitHub is convenient. We use::
+
+  $pip install --no-deps -e .
+  
+for this
 
 
 Coding standards
