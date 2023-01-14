@@ -40,7 +40,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Creating/Edit Documentation" href="add_doc.html" />
-    <link rel="prev" title="Delta Modeling Office’s Instructions for running Bay Delta SCHISM" href="bdo_bdsch_instr.html" /> 
+    <link rel="prev" title="Bay-Delta SCHISM" href="models.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -100,10 +100,24 @@
 <p class="caption" role="heading"><span class="caption-text">General documentation</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Python Configuration and Usage</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#intro-to-conda-and-python-environments">Intro to Conda and Python environments</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#coding-standards">Coding standards</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#intro-to-conda-and-python-environments">Intro to Conda and Python environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bottom-line-for-experienced-users">Bottom line for experienced users</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#use-miniconda-with-environments">Use miniconda with environments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#channel-priorities">Channel priorities</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#preferred-channels">Preferred channels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#channel-priority-strict">Channel priority strict</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#background">Background</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#environment">Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#developer-installs">Developer installs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#coding-standards">Coding standards</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#conda-and-python-version">Conda and Python version</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#testing">Testing</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="add_doc.html">Creating/Edit Documentation</a></li>
@@ -175,17 +189,100 @@
 <h1>Python Configuration and Usage<a class="headerlink" href="#python-configuration-and-usage" title="Permalink to this heading">¶</a></h1>
 <section id="intro-to-conda-and-python-environments">
 <h2>Intro to Conda and Python environments<a class="headerlink" href="#intro-to-conda-and-python-environments" title="Permalink to this heading">¶</a></h2>
-<p># This space is a knowledge base about installing and learning Python, including Anaconda, Jupyter, etc. It isn’t meant as a  guide to our specific products except inasmuch as issues span many of them.</p>
-<p>If you are setting up a python environment to work :</p>
-<p>If you are coding in Python: Python Development Guidelines</p>
-<p>want to think about organizing and contributing common code Module dependencies and guidelines for organizing functions</p>
-<p>If you are setting up an environment in Python: Python (Conda) Channels and Environments</p>
-<p>with an example for pydsm Conda Installation for DSM2 and SCHISM packages
-with an example for schimpy Conda for schimpy</p>
-<p>If you are using Jupyter Notebook: Setting up Jupyter notebook</p>
-<section id="coding-standards">
-<h3>Coding standards<a class="headerlink" href="#coding-standards" title="Permalink to this heading">¶</a></h3>
+<p>This space is a knowledge base about installing and learning Python,
+including conda, Jupyter, etc. It isn’t meant as a  guide to using our specific
+products except inasmuch as installation issues and methods span many of them.</p>
+<p>We currently recommend conda as a package manager for our libraries. Most
+of our production libraries are deployed via conda. Support for other package management
+systems such as PyPi is in the works, but minimally supported at this time.</p>
+<p>For brevity we begin with the recommended practice for those who are already familiar. The installation of miniconda is very straightforward, and there is a lot of material online about what environments are.</p>
 </section>
+<section id="bottom-line-for-experienced-users">
+<h2>Bottom line for experienced users<a class="headerlink" href="#bottom-line-for-experienced-users" title="Permalink to this heading">¶</a></h2>
+<section id="use-miniconda-with-environments">
+<h3>Use miniconda with environments<a class="headerlink" href="#use-miniconda-with-environments" title="Permalink to this heading">¶</a></h3>
+<p><a class="reference external" href="https://docs.conda.io/en/latest/miniconda.html">Miniconda</a> is a combination of a very lean python plus a package manager. Installers for miniconda are easily found online. Many of our larger projects come with environment.yml files in their base directories, which list the preprequisite libraries you would need. The BayDeltaSCHISM project provides a monolith that is known to successfully install and covers a lot of the tools used with SCHISM such as schimpy.</p>
+<p>Use the command below to create an environment (with name my_env_name):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">env</span> <span class="n">create</span> <span class="o">-</span><span class="n">n</span> <span class="n">my_env_name</span> <span class="o">-</span><span class="n">f</span> <span class="n">environment</span><span class="o">.</span><span class="n">yml</span>
+</pre></div>
+</div>
+<p>Use the command below to update the enviornment after changing the environment.yml file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">env</span> <span class="n">update</span> <span class="o">-</span><span class="n">n</span> <span class="n">my_env_name</span> <span class="o">-</span><span class="n">f</span> <span class="n">environment</span><span class="o">.</span><span class="n">yml</span>
+</pre></div>
+</div>
+</section>
+<section id="channel-priorities">
+<h3>Channel priorities<a class="headerlink" href="#channel-priorities" title="Permalink to this heading">¶</a></h3>
+<section id="preferred-channels">
+<h4>Preferred channels<a class="headerlink" href="#preferred-channels" title="Permalink to this heading">¶</a></h4>
+<p>We maintain our own conda channel in order to provide stability for a few libraries, but in a lot of cases you should set up conda priorities in this order:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">channels</span><span class="p">:</span>
+  <span class="o">-</span> <span class="n">defaults</span>
+  <span class="o">-</span> <span class="n">cadwr</span><span class="o">-</span><span class="n">dms</span>
+  <span class="o">-</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
+</pre></div>
+</div>
+<p>The main incompatibility we are dealing with is between the two major sources: “defaults” and “conda-forge”. The defaults and conda-forge channels are not fully compatible, particularly for the numpy library. The problem is that they are based on different linear algebra libraries at the system level, and those do not play well with one another. This is a cascading problem for other libraries that use native dlls – some libraries like gdal (geo spatial) depend on numpy and have to “link” to the same runtime libraries as the numpy they depend on. This means that for a number of core tools, we need to pick our poison and the poison we picked is defaults. If you know what you are doing you can do conda-forge, but your contributed code will be expected to work with defaults.</p>
+</section>
+<section id="channel-priority-strict">
+<h4>Channel priority strict<a class="headerlink" href="#channel-priority-strict" title="Permalink to this heading">¶</a></h4>
+<p>We recommend you set conda channel priority strict:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ conda config --set channel_priority strict
+</pre></div>
+</div>
+<p>If have your own priorities you can do this per-environment:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ conda activate target_env
+$ conda config --env --append channels conda-forge
+$ conda config --env --prepend channels cadwr-dms
+$ conda config --env --set channel_priority strict
+</pre></div>
+</div>
+<p>Much of the reason for setting these preferences is to avoid the lack of persistence of channel priority during updates if libraries that are installed using the -C option in conda. Channel preferences with -C do not stick. Besides, if you have your channel priorities correct and strict (topics covered below) you often don’t need -C anyway.</p>
+</section>
+</section>
+</section>
+<section id="background">
+<h2>Background<a class="headerlink" href="#background" title="Permalink to this heading">¶</a></h2>
+<p>Python is a confederation of libraries, and the more powerful it gets the more the library versions have to be coordinated so that they work well together. This is what a package manager (conda) does. In 2016, it was reasonable to want to find a “universal bundle” you could use for everything, a monolithic distribution like Anaconda that puts an enormous number of compatible libraries at your disposal. Fast-forward to 2023 and Python libraries have proliferated and coming up with a set that is fully compatible is a hard optimization problem. A good installer that accurately lists dependencies (without over or under-reaching) helps the “solve” but even still usage has gravitated towards the minimal miniconda plus a user specific environment so that you don’t catch a lot of requirements and constraints from packages you don’t actually use. The example environment below shows how to do this without hardwiring a lot of versions –you still get a lot of help from the conda package manager getting things that fit together.</p>
+<p>For best practices see this <a class="reference external" href="https://carpentries-incubator.github.io/introduction-to-conda-for-data-scientists/setup/">Scipy tutorial</a></p>
+<p>Please also note that even though it is experimental, the new <a class="reference external" href="https://conda.github.io/conda-libmamba-solver/">libmamba solver</a>  has worked well for us and might be worth exploring. It does a better job of reconciling library versions and it it is much faster.</p>
+</section>
+<section id="environment">
+<h2>Environment<a class="headerlink" href="#environment" title="Permalink to this heading">¶</a></h2>
+<p>What is an environment? A package manager?</p>
+<p>In a nutshell, a package manager (miniconda) allows you to toggle between virtual environments, which behave like complete python setups that are optimized for particular uses. Your microconda python installation will come configured with a base environment, but you won’t do anything with that except create other environments that have unique bundles of libraries tuned for specific tasks.  You can have a number of these on your computer – perhaps targeting different use cases that require different and conflicting sets of libraries.</p>
+<p>A miniconda base environment will be very stripped down so that it never breaks. This is what distinguishes it with Anaconda, an older product which is a giant and feature rich environment but that tends to break as you add in new components. With miniconda, as long as base is in good shape, you can create and manage other environments with little potential for something going wrong and if something does go wrong you just replace the environment. On our end, we can provide specifications for complete environements in the form of yaml files that will provide everything you need for a set of tasks.</p>
+</section>
+<section id="developer-installs">
+<h2>Developer installs<a class="headerlink" href="#developer-installs" title="Permalink to this heading">¶</a></h2>
+<p>For aspiring developers, installing using conda may be very inconvenient. The</p>
+</section>
+<section id="coding-standards">
+<h2>Coding standards<a class="headerlink" href="#coding-standards" title="Permalink to this heading">¶</a></h2>
+<section id="conda-and-python-version">
+<h3>Conda and Python version<a class="headerlink" href="#conda-and-python-version" title="Permalink to this heading">¶</a></h3>
+<p>Please use conda (anaconda or miniconda) to setup and install python and its dependencies. Use Python 3.9.x as of 2023.</p>
+<p>Use git to clone to your local directory. Use a developer install (pip install –no-deps -e .) to install. Note that you should use pip judiciously and with the –no-deps flag to avoid pip (which is a competitive package manager) from “stealing” material from conda and causing a mess.</p>
+<p>Please adhere to <a class="reference external" href="https://www.python.org/dev/peps/pep-0008/">PEP-8</a> which serves as the official style guide for Python. Both Spyder and VS Code provide hooks to autopep8 which can help with “linting” (auto correcting to these and other standards. For instance, please use these guidelines for style as they are a python standard:</p>
+<ul>
+<li><p>Use lower case consistently ( no exceptions for things like institutional names or common acronyms. So not: so_not_USGS ).</p></li>
+<li><p>CamelForClassNames is OK.</p></li>
+<li><p>Use numpydoc notation for function documentation (input output parameters). See the <a class="reference external" href="https://numpydoc.readthedocs.io/en/latest/example.html">example</a>.</p></li>
+<li><p>Use Autopep8 (autopep8-PyPI) with your editor if possible.</p></li>
+<li><p>On windows, set a git configuration for autocrlf:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git config --global core.autocrlf true
+</pre></div>
+</div>
+</li>
+</ul>
+<p>All our github repos are at  <a class="reference external" href="https://github.com/CADWRDeltaModeling">https://github.com/CADWRDeltaModeling</a>. Please ask for write permissions if you would like to submit code there. Forking and submitting pull requests is also fine.</p>
+<p>Project/Module Structure
+Python tools are expected to use python cookie cutter. <a class="reference external" href="https://cookiecutter.readthedocs.io/en/latest/">https://cookiecutter.readthedocs.io/en/latest/</a>. See Python New Project Template for details.</p>
+</section>
+</section>
+<section id="testing">
+<h2>Testing<a class="headerlink" href="#testing" title="Permalink to this heading">¶</a></h2>
+<p>We use pytest, and GitHub action or Jenkins CI (See Internal CI platforms) for test automation. For routine development we recommend that you use unit tests and if you integrate them well we will add them to the CI suite pytest.</p>
 </section>
 </section>
 
@@ -200,7 +297,7 @@ with an example for schimpy Conda for schimpy</p>
         <a href="add_doc.html" class="btn btn-neutral float-right" title="Creating/Edit Documentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="bdo_bdsch_instr.html" class="btn btn-neutral float-left" title="Delta Modeling Office’s Instructions for running Bay Delta SCHISM" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="models.html" class="btn btn-neutral float-left" title="Bay-Delta SCHISM" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
