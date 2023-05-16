@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>DSM2 version 8.2 : Historical Simulation Checklist</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">DSM2 version 8.2</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="DSM2_87228545.html">DSM2</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Checklists_87229298.html">Checklists</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            DSM2 version 8.2 : Historical Simulation Checklist
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Nicky Sandhu</span> on Jan 27, 2021
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h2 id="HistoricalSimulationChecklist-VerifyinganExtensionoftheHistoricalSimulation">Verifying an Extension of the Historical Simulation</h2><p>Bob Suits 10/16/2020</p><h2 id="HistoricalSimulationChecklist-VerifyInputHydrology">Verify Input Hydrology</h2><h3 id="HistoricalSimulationChecklist-CheckBoundaryConditions"><br/>Check Boundary Conditions</h3><ul><li>Sacramento River inflow</li><li>San Joaquin River Inflow</li><li>Sacramento River + Yolo Bypass Inflow</li><li>Banks pumping</li><li>Jones pumping</li></ul><h3 id="HistoricalSimulationChecklist-GetObservedData">Get Observed Data</h3><p>Preferably get the Sacramento and San Joaquin River inflows and Banks and Jones pumping from DAYFLOW. If DAYFLOW isn’t complete, get remainder daily average flow from CDEC. It needs to be independent of the DSM2 set-up.</p><p><br/>Get reported flow at SRV (Rio Vista) and generate daily average flow.</p><h3 id="HistoricalSimulationChecklist-GeneratedailyaverageflowfromDSM2simulationat:"><br/>Generate daily average flow from DSM2 simulation at:</h3><p><br/>VCU, ORI, OH4, OBD, GLC, RSAC101, RSAN115, RSAC155</p><h3 id="HistoricalSimulationChecklist-ComparedailyaverageobservedflowstoDSM2-simulatedflowsatboundaries">Compare daily average observed flows to DSM2-simulated flows at boundaries</h3><div class="table-wrap"><table class="wrapped confluenceTable"><colgroup><col/><col/><col/><col/></colgroup><tbody><tr><th class="confluenceTh">Flow</th><th class="confluenceTh">CDEC Stations</th><th colspan="1" class="confluenceTh">Operating Agency</th><th class="confluenceTh">Simulated</th></tr><tr><td class="confluenceTd">Sac River Inflow</td><td class="confluenceTd">FPT</td><td colspan="1" class="confluenceTd">USGS</td><td class="confluenceTd">RSAC155</td></tr><tr><td class="confluenceTd">SJR Inflow</td><td class="confluenceTd"><br/></td><td colspan="1" class="confluenceTd"><br/></td><td class="confluenceTd">RSAN112</td></tr><tr><td class="confluenceTd">SRV</td><td class="confluenceTd"><br/></td><td colspan="1" class="confluenceTd"><br/></td><td class="confluenceTd">RSAC101</td></tr><tr><td class="confluenceTd">Banks Pumping</td><td class="confluenceTd"><br/></td><td colspan="1" class="confluenceTd"><br/></td><td class="confluenceTd">VCU + ORI – OH4</td></tr><tr><td class="confluenceTd">Jones Pumping</td><td class="confluenceTd"><br/></td><td colspan="1" class="confluenceTd"><br/></td><td class="confluenceTd">OBD + GLC – ORI</td></tr><tr><td colspan="1" class="confluenceTd">Banks + Jones</td><td colspan="1" class="confluenceTd"><br/></td><td colspan="1" class="confluenceTd"><br/></td><td colspan="1" class="confluenceTd">VCU + OBD + GLC – OH4</td></tr></tbody></table></div><p><br/></p><h3 id="HistoricalSimulationChecklist-VerifytimingofinstallationandremovaloftemporarybarriersandoperationofMontezumaControlStructureandDeltaCrossChannelGates">Verify timing of installation and removal of temporary barriers and operation of Montezuma Control Structure and Delta Cross Channel Gates</h3><ol><li><p class="auto-cursor-target">Create a dss file with the observed and simulated 15-minute data. Compare observed and simulated stages just upstream and downstream of each barrier site. This would already have been done with observed data in establishing the timings by looking at observed stages. Now repeat the analysis in order to confirm that you got the operation timing correct.</p><div class="table-wrap"><table class="wrapped confluenceTable"><colgroup><col/><col/></colgroup><tbody><tr><th class="confluenceTh">Barrier</th><th class="confluenceTh">Stations to use to check</th></tr><tr><td class="confluenceTd"> Middle River</td><td class="confluenceTd"><p>​MUP and (MAB or MTB)</p></td></tr><tr><td colspan="1" class="confluenceTd">Grant Line Canal</td><td colspan="1" class="confluenceTd">GCT and GLE</td></tr><tr><td colspan="1" class="confluenceTd">Old River</td><td colspan="1" class="confluenceTd">OBD and (OAD or ODM)</td></tr><tr><td colspan="1" class="confluenceTd">Old River at Head</td><td colspan="1" class="confluenceTd">OH1 and SJL</td></tr></tbody></table></div></li><li><p class="auto-cursor-target"><span style="letter-spacing: 0.0px;"> Compare internal daily average flows affected by gate operations<br/></span></p><div class="table-wrap"><table class="wrapped confluenceTable"><colgroup><col/><col/></colgroup><tbody><tr><th class="confluenceTh">Observed</th><th class="confluenceTh">Simulated</th></tr><tr><td class="confluenceTd">DLC</td><td class="confluenceTd">DLC Delta Cross Channel</td></tr><tr><td class="confluenceTd">NSL</td><td class="confluenceTd">SLMZU025 Montezuma Slough at National Steel</td></tr></tbody></table></div></li><li><p class="auto-cursor-target"><span style="letter-spacing: 0.0px;">Check key internal flows for overall circulation of Delta waters</span></p><div class="table-wrap"><table class="wrapped confluenceTable"><colgroup><col/><col/></colgroup><tbody><tr><th class="confluenceTh">Observed</th><th class="confluenceTh">Simulated</th></tr><tr><td class="confluenceTd">GSS</td><td class="confluenceTd">GSS</td></tr><tr><td class="confluenceTd">TRN</td><td class="confluenceTd">TRN</td></tr><tr><td class="confluenceTd">OBI</td><td class="confluenceTd">OBI (ROLD024)</td></tr><tr><td class="confluenceTd">MDM</td><td class="confluenceTd"> Subtract RMID015-145 from RMID015-144</td></tr><tr><td class="confluenceTd">OH4</td><td class="confluenceTd">OH4 (ROLD034)</td></tr><tr><td class="confluenceTd">VCU</td><td class="confluenceTd">VCU</td></tr><tr><td class="confluenceTd">OH1</td><td class="confluenceTd">OH1</td></tr><tr><td class="confluenceTd">OLD</td><td class="confluenceTd">OLD</td></tr><tr><td colspan="1" class="confluenceTd">GLE</td><td colspan="1" class="confluenceTd">GLE</td></tr></tbody></table></div></li></ol><h3 id="HistoricalSimulationChecklist-VerifyingEC">Verifying EC </h3><p>Get OCO’s monthly updated EC estimates at: Banks, Jones, OH4, OBI to compare to<br/>Delta Modeling Section’s historical simulation and reported EC.</p><div class="table-wrap"><table class="confluenceTable"><colgroup><col/><col/></colgroup><tbody><tr><th class="confluenceTh">Observed </th><th class="confluenceTh">Simulated</th></tr><tr><td class="confluenceTd">BANKS</td><td class="confluenceTd">BANKS</td></tr><tr><td class="confluenceTd">JONES</td><td class="confluenceTd">JONES</td></tr><tr><td class="confluenceTd">OBI</td><td class="confluenceTd">ROLD024</td></tr><tr><td class="confluenceTd">OH4</td><td class="confluenceTd">ROLD034</td></tr></tbody></table></div><p><br/>Compare observed EC to simulated EC at other key locations</p><div class="table-wrap"><table class="relative-table confluenceTable" style="width: 20.111%;"><colgroup><col style="width: 53.9792%;"/><col style="width: 45.6747%;"/></colgroup><tbody><tr><th class="confluenceTh">Observed </th><th class="confluenceTh">Simulated</th></tr><tr><td class="confluenceTd">ANH </td><td class="confluenceTd">ANH (RSAN007)</td></tr><tr><td class="confluenceTd">EMM </td><td class="confluenceTd">EMM (RSAC092)</td></tr><tr><td class="confluenceTd">JER </td><td class="confluenceTd">RSAN018</td></tr><tr><td class="confluenceTd">MDM </td><td class="confluenceTd">RMID015</td></tr><tr><td class="confluenceTd">VCU </td><td class="confluenceTd">CHVCT000</td></tr><tr><td colspan="1" class="confluenceTd">OH1 </td><td colspan="1" class="confluenceTd">ROLD074</td></tr><tr><td colspan="1" class="confluenceTd">OLD </td><td colspan="1" class="confluenceTd">ROLD059</td></tr></tbody></table></div><p><br/></p>
+                    </div>
+
+                                                            <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/87229300/87229299.png">worddavdba6ec7d80d8e6d0f248fa3e9c1a9f2c.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/87229300/87229301.png">worddav1c660f167bf01e13f8c74d8d923445b8.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/87229300/87229302.png">worddavc1eb73f1cc8b69c78afeeda15ca65f9f.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/87229300/87229303.png">worddavffb24ad6008690b469796d092cb3e822.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/87229300/87229304.png">worddav7e51b7bfbf042cd6018456316774c8ac.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/87229300/87229305.png">worddav46b8e2022c959a0ec4979c9f7a8a9b76.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/87229300/87229306.png">worddav096303e2931d512411acda589b39c3cb.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/87229300/87229307.png">worddavac6c9b93520fd08679d0ccfdc60b7b66.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/87229300/87229308.png">worddav417450fd7fccb9d246170ebb7f24d040.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/87229300/87229309.png">worddava898e0b2ae4581b97e766bf78287b5c1.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/87229300/87229310.png">worddav68b2cbedb7a858f3c9b7f1a1e3ab74ac.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/87229300/87229311.png">worddav5b3d61166388b0d6b2f355755006cda2.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/87229300/87229312.png">worddav8c7ed9ee05ac17e5e96e011f3f2618cd.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/87229300/87229313.png">worddav1767755d061f0eab1f3ca3f72ac8cef2.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/87229300/87229314.png">worddavf80c76565c2ad18b4d77a1e3e7d95206.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/87229300/87229315.png">worddavcbc13ea92d122ff1199746fedcb5d095.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/87229300/87229316.png">worddavbec1a14c56fb496c1411aa3f37418f8f.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/87229300/87229317.png">worddav7b88059002b010dabef7c4b1535bb124.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/87229300/87229318.png">worddav5bb8f683823e3bf73c38767313d66e71.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/87229300/87229319.png">worddavc305fa1a938290814fd2248549ba4430.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/87229300/87229320.png">worddavdfbad699bc5178a523225eb4db224138.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/87229300/87229321.png">worddav4ea5b554fecf90d7309db37a565d3a27.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/87229300/87229322.png">worddav97cef626ad442220331e25e5e8e8107f.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/87229300/87229323.png">worddave19a27a3183a9cd911129f634e5785e1.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/87229300/87229324.png">worddavcafee77d96b6996a2ba1b263d685acf2.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/87229300/87229325.png">worddav586bb64e084e848f881c6b85898711d9.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/87229300/87229326.png">worddav06a87c364207da504d16cfe87f616b71.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/87229300/87229327.png">worddavfed7fe74c73acf86c9270728c405a08c.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/87229300/87229328.png">worddav1b9bd5a7d0e6c5fe479a6a2f41178b3d.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/87229300/87229329.png">worddav252bc8a83f17f3aaf5122fc24dc34a7b.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/87229300/87229330.png">worddavaefc8f4547e26bc30a4e1e2e6d9649e4.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/87229300/87229331.png">worddav43dc9470b95f7adadead62075f065c27.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/87229300/87229332.png">worddav44b58de538e094cc6f56fa252e0b3775.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/87229300/87229333.png">worddavf81ccfffae04537644dbc328afa65327.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/87229300/87229334.png">worddavfb16076aa13e127fd8eb1d3b049dec6e.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/87229300/87229335.png">worddav9a6b20dc0a73de6bf9dab0456647125f.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/87229300/87229336.png">worddav230f2ffdb48f91fc3c31cb101e946de0.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/87229300/87229337.png">worddave2ddaa02d082a0f4038f1aa1cae93a47.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/87229300/87229338.png">worddav41ab2bbaa193e682b05098057d919df2.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/87229300/87229339.png">worddavcb34498bae50e99b02ddf21594a946c0.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/87229300/87229340.png">worddav248f48ce932b6488517e2109896fdb56.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/87229300/87229341.png">worddave25679296b7bc483b7fb1156d722e8b6.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/87229300/87229342.png">worddav44d59b8b5a711866ad8dde94f0d42d27.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/87229300/87229343.png">worddav660ebda068b8ef166732e0aef200cc6e.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 16, 2023 11:05</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

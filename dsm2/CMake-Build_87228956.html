@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>DSM2 version 8.2 : CMake Build</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">DSM2 version 8.2</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="DSM2_87228545.html">DSM2</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Developer-and-Build_87228890.html">Developer and Build</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            DSM2 version 8.2 : CMake Build
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Nicky Sandhu</span> on Jan 27, 2021
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h1 id="CMakeBuild-Introduction">Introduction</h1><p>DSM2 consists of many projects and third party libraries. This has meant running a number of scripts as documented in <a href="CMake-Build_87228956.html">CMake Build</a>. It has also entailed opening multiple solution files and build libraries by hand. Furthermore, the compiler and visual studio upgrades were slow to adopt due to the cost of breaking changes when upgrading versions. And finally and most importantly, the daunting task of building all these files for a different OS such as linux.</p><h1 id="CMakeBuild-CMake">CMake</h1><p><a href="https://cmake.org/" class="external-link" rel="nofollow">cmake </a>is a system that generates the build system. In other words cmake does not help in building the libraries and projects but encompasses the high-level, OS and build system independent instructions for generating those systems. Its introduction and tutorial could be found at <a href="https://cmake.org/" class="external-link" rel="nofollow">https://cmake.org/</a></p><p><br/></p><p>A first effort at a cmake generated build system is working for VS2015 with the latest intel compiler on Windows. The instructions for this and the files needed have been checked into <a href="https://github.com/CADWRDeltaModeling/dsm2/blob/master/dsm2/src/README.CMAKE.txt" class="external-link" rel="nofollow">github master</a></p><ul><li>A CmakeLibraryMacro.txt is placed at DSM2 root path, with global macro and environment settings</li><li>A CmakeLists is placed under each project/sub-subject to govern its compilation.</li><li>build*.bat is created for DSM2, input_storage, oprule, respectively, to contain the key cmake commands (listed in the following sections).</li><li>After compilation, the exe/dll are generated under subfolders BUILD\release or BUILD\debug.</li></ul><h1 id="CMakeBuild-DSM2coreproject">DSM2 core project</h1><div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>CMake Instructions
+Create a build directory BUILD under dsm2
+
+
+mkdir BUILD
+cd BUILD
+
+First setup path 
+&quot;C:\Program Files (x86)\IntelSWTools\compilers_and_libraries\windows\bin\compilevars.bat&quot; ia32 vs2015
+
+Next execute for VS2015 the cmake command
+cmake -G &quot;Visual Studio 14 2015&quot; ..\src
+
+Finally open the DSM2.sln file in VS 2008 and compile
+
+or compile from command line with this command
+cmake --build . --target ALL_BUILD --config Debug
+cmake --build . --target ALL_BUILD --config Release</pre>
+</div></div><h1 id="CMakeBuild-InputStorageandOprule">Input Storage and Oprule</h1><p>The libraries input_storage and oprule are built to support DSM2 core project. (confirm their building success before compile core project)</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: python; gutter: false; theme: Confluence" data-theme="Confluence">cd input_storage
+mkdir BUILD
+cd BUILD
+cmake -G &quot;Visual Studio 14 2015&quot; ..\
+cmake --build . --target ALL_BUILD --config Debug
+cmake --build . --target ALL_BUILD --config Release</pre>
+</div></div><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: python; gutter: false; theme: Confluence" data-theme="Confluence">cd oprule
+mkdir BUILD
+cd BUILD
+cmake -G &quot;Visual Studio 14 2015&quot; ..\
+cmake --build . --target ALL_BUILD --config Debug
+cmake --build . --target ALL_BUILD --config Release</pre>
+</div></div><h1 id="CMakeBuild-ThirdParty">Third Party</h1><p>DSM2 relies on third parties and requires the required libraries below. <span style="color: rgb(23,43,77);text-decoration: none;">Usually DSM2 just uses the built-up libraries; however, sometimes (when version/environment changes), the following libraries need re-build. Note DSM2 only requires some specific subsets in these libraries and these specification could be found in CmakeLibraryMacro.txt</span></p><p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-thumbnail" height="217" src="attachments/87228956/87228957.png" data-image-src="attachments/87228956/87228957.png" data-unresolved-comment-count="0" data-linked-resource-id="87228957" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="sum.PNG" data-base-url="http://msb-confluence" data-linked-resource-content-type="image/png" data-linked-resource-container-id="87228956" data-linked-resource-container-version="1"></span></p><p><br/></p><h2 id="CMakeBuild-boost"><strong>boost</strong></h2><p>Run bootstrap.bat to build b2.exe; then run b2.exe</p><p>Note b2.exe is required to run in complete mode (the default minimal mode won't build the required library; run b2 --help for details)</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>Linux sample for boost build</b></div><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: python; gutter: false; theme: Confluence" data-theme="Confluence">#use this script to get started with new boost library
+#cp this script into new boost library source directory
+./bootstrap.sh --with-toolset=intel-linux
+./b2 --clean
+./b2 -a toolset=intel-linux link=static variant=release --with-filesystem --with-regex --with-system --with-test
+</pre>
+</div></div><div class="code panel pdl" style="border-width: 1px;"><div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>Windos sample for boost build</b></div><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: python; gutter: false; theme: Confluence" data-theme="Confluence">./b2 -a runtime-link=static --with-filesystem --with-regex --with-system --with-test</pre>
+</div></div><h2 id="CMakeBuild-HDF5"><strong>HDF5</strong></h2><p>Go to CMake-hdf5-1.8.20 folder to run batch of the relevant version, e.g. build-VS2015-32.bat, which builds HDF5-1.8.20-win32.zip</p><p>Unzip it and place it under third_party folder.</p><div class="confluence-information-macro confluence-information-macro-warning"><span class="aui-icon aui-icon-small aui-iconfont-error confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>To build the static libraries which is what is needed with DSM2 static build see this <a href="HDF5-CMake-Static-Build_87228959.html">HDF5 CMake Static Build</a></p></div></div><p><br/></p><h2 id="CMakeBuild-heclib"><strong>heclib</strong></h2><p>Build heclib\windows_sources\windows_build_MT_default_settings.bat</p><ul><li>MT is for static version as we needed (MD for dynamic)</li><li>Make sure setting compiler path as the required version (as exemplified in core project)</li></ul><p><br/></p><p><strong>For using Visual Studio 2017</strong></p><p>Install Visual Studio 2017:</p><p>In addition to the standard Visual Studio 2017 installation, download individual components from the VS2017 installer.  The individual components needed are:</p><p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-thumbnail" height="250" src="attachments/87228956/87228955.jpg" data-image-src="attachments/87228956/87228955.jpg" data-unresolved-comment-count="0" data-linked-resource-id="87228955" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="VS2017_individaul_components.jpg" data-base-url="http://msb-confluence" data-linked-resource-content-type="image/jpeg" data-linked-resource-container-id="87228956" data-linked-resource-container-version="1"></span></p><p>Run the installer, and click on Modify, then Individual components tab, and check the components, finally click on Modify.</p><p><br/></p><p>Change the lines in build_dsm2_vs2015_32b.bat:</p><p>call &quot;C:\Program Files (x86)\IntelSWTools\compilers_and_libraries\windows\bin\compilevars.bat&quot; ia32 vs2015</p><p>to</p><p>call &quot;C:\Program Files (x86)\IntelSWTools\compilers_and_libraries_2019\windows\bin\compilervars.bat&quot; ia32 vs2017</p><p><br/></p><p>cmake -G &quot;Visual Studio 14 2015&quot; ..\src</p><p>to </p><p>cmake -G &quot;Visual Studio 15 2017&quot; ..\src</p><p><br/></p><p>Rerun the build scripts as instructed above.</p><p><br/></p><p><br/></p>
+                    </div>
+
+                                                            <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/87228956/87228955.jpg">VS2017_individaul_components.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/87228956/87228957.png">sum.PNG</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 16, 2023 11:04</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

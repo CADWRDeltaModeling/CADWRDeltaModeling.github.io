@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>DSM2 version 8.2 : Particle Reservoir Filter</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">DSM2 version 8.2</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="DSM2_87228545.html">DSM2</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Documentation_87228546.html">Documentation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="DSM2-Overview_87228548.html">DSM2 Overview</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            DSM2 version 8.2 : Particle Reservoir Filter
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Yu (Joey) Zhou</span> on Jan 27, 2021
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h2 id="ParticleReservoirFilter-Overview">Overview</h2><p><em><em>Particle Reservoir Filter</em> is a section in the PTM input where you set up particle-filters. Particle Reservoir Filter is designed to modify the particle flux at reservoir, without changing hydrodynamic condition, by keeping particles from entering the specified waterbody. </em></p><h2 id="ParticleReservoirFilter-Tables">Tables</h2><div class="code panel pdl" style="border-width: 1px;"><div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>Example</b></div><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: text; gutter: false; theme: Confluence" data-theme="Confluence">PARTICLE_RES_FILTER 
+NAME          RES_NAME      WATERBODY          FILLIN FILE           PATH 
+clfc_div_bbid clifton_court qext:dicu_div_bbid last   ./filterOp.dss /HIST+FILTER/CLFC_DIV/FILTER_OP//IR-DECADE/DWR-BDO/  
+END
+</pre>
+</div></div><p><br/></p><p>This is a special filter, which locates at a reservoir directly connecting to a source flow. The PARTICLE_RES_FILTER table defines particle filters by giving them names, associating them to a reservoir and one of its directly connecting waterbody, and setting up the passing efficiency. (which could be constant value, or time-varying data in DSS).</p><h4 id="ParticleReservoirFilter-FieldDescriptions">Field Descriptions</h4><h5 id="ParticleReservoirFilter-NAME">NAME</h5><p>Name assigned to the particle filter. This is the identifier of the filter used elsewhere to refer to the filter.</p><h5 id="ParticleReservoirFilter-RES_NAME">RES_NAME</h5><p>The name of the reservoir to which the filter is applied.</p><h5 id="ParticleReservoirFilter-AT_WB">AT_WB</h5><p>The type and ID of the waterbody to which the filter is attached .</p><h5 id="ParticleReservoirFilter-FILLIN">FILLIN</h5><p>Method for filling in data if the time step of the assigned series is coarser than the time step of the model. See fillin types.</p><h5 id="ParticleReservoirFilter-FILE">FILE</h5><p>DSS or text file in which data are stored. Use consistent case when referring to the same file. You may also enter the word <em>constant<em> if you would like to assign a constant value to the input (the value will be entered in the next column). </em></em></p><h5 id="ParticleReservoirFilter-PATH">PATH</h5><p>The path within the text or DSS file of the time series data. If you used the constant keyword in the Input File column, enter the value here. The stored variable is particle passing efficiency, a float value between 0 ~ 1: 0-block; 1-totally pass.<em><em> </em></em></p><p><br/></p><div class="confluence-information-macro confluence-information-macro-note"><span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>Similar as Particle Filter</p></div></div><p><div style="page-break-before:always;" /></p><p><br/></p><p><br/></p><p><br/></p>
+                    </div>
+
+                                        
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 16, 2023 11:04</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

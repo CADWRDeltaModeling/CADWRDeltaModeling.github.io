@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>DSM2 version 8.2 : Cross-Section Development Program (CSDP)</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">DSM2 version 8.2</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="DSM2_87228545.html">DSM2</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="DSM2-Geo-referenced-grid_87228639.html">DSM2 Geo referenced grid</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            DSM2 version 8.2 : Cross-Section Development Program (CSDP)
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Nicky Sandhu</span> on Jan 27, 2021
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h2 id="CrossSectionDevelopmentProgram(CSDP)-Introduction"><span>Introduction</span></h2><p><span>Bathymetry data is used by CSDP to draw cross-sections which are then converted to DSM2-Hydro cross sectional input. Furthermore CSDP provides the channel and cross section locations in GIS projection of NAD 27, NGVD 29</span></p><p><span>CSDP was developed by Brad Tom in the 1990s, and has recently been updated for use in the <a href="http://msb-confluence/display/DM/GIS+Reference" rel="nofollow">DSM2 GIS Reference Project</a>.</span></p><p><span><br/></span></p><h3 id="CrossSectionDevelopmentProgram(CSDP)-HowtogetstartedinusingCSDP?"><span>How to get started in using CSDP?</span></h3><p><span>The CSDP Manual is available here <a href="attachments/87228641/87228650.pdf" data-linked-resource-id="87228650" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="csdpmanual.pdf" data-nice-type="PDF Document" data-linked-resource-content-type="application/pdf" data-linked-resource-container-id="87228641" data-linked-resource-container-version="1">Cross-Section Development Program (CSDP)</a></span></p><p>A <a href="CSDP-Tutorial_87228824.html">hands on tutorial and presentation</a> given by Brad Tom in 2009 is a good reference resource.</p><div class="confluence-information-macro confluence-information-macro-note"><span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>In version 8.x the irregular xsection file format has changed. To change this information to the new format run the script under vista/scripts/dsm2/csdp_geom_converter.py with the location of the directory as input</p><div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>vscript scripts/dsm2/csdp_geom_converter.py &lt;dir_containing_csdp_calculated_xsections&gt;</pre>
+</div></div><p class="auto-cursor-target">This will create a irregular_xsections_dsm2.inp which will contain all the cross sections in that directory in the new 8.x format</p></div></div><p><span>CSDP will now create DSM2 geometry input in both the original multi-file format used by older versions of DSM2, and the newer single file format, so the above script is no longer needed.</span></p><p>An ArcGIS extension was developed as a modern replacement for CSDP by Tom Heinzer. However this has not been available publicly yet and the grid and cross sections are still being developed in this tool.</p><h2 id="CrossSectionDevelopmentProgram(CSDP)-CSDPconversiontoArcGIS">CSDP conversion to ArcGIS</h2><p>Using WKT (Well Known Text) format and QGIS (add delimited text layer) capabilities, <span class="inline-comment-marker" data-ref="264806a8-8b3a-4759-92bc-d3e201e17f67">the information from CSDP files was converted to shapefiles</span></p><p>node.cdl contained the information about the nodes in CSDP corresponding to DSM2 node locations. </p><p>mjtstrm_vec.cdo contained the outlines of levees and other features which are now redundant given the availability of maps (raster based tile layers) from google, open street etc.</p><p>05jul2000.cdn is the channel network which included the centerline of channels and the cross-section created by looking at bathymetry data (those are available separately as large files)</p><p>delta_2009Calib.cdn is the channel network for persumably the 2009 calibration.</p><p>The files are available on the shared drive (<a href="file://cnrastore-bdo/Delta_Mod/Share/maps/" class="external-link" rel="nofollow">\\cnrastore-bdo\Delta_Mod\Share\maps</a>) from both 2000 (CSDP_Converted_2000Calib.qgs) and 2009 (CSDP_Converted_2009Calib.qgs) calibrations</p><p>For more information on DSM2 gridmaps and how they relate to CSDP files, see <a href="DSM2-Geo-referenced-grid_87228639.html">DSM2 Geo referenced grid</a>.</p><p><span><br/></span></p><ul class="inline-task-list" data-inline-tasks-content-id="87228641"><li data-inline-task-id="6"><span>Write up needed on CSDP and its successor the ArcGIS extension </span></li><li data-inline-task-id="4"><span>Write up needed using approach by Ines using ArcGIS and python scripts </span></li></ul><p><br/></p>
+                    </div>
+
+                                                            <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/87228641/87228640.xlsx">CSDP_vs_Channels_inp_Lengths.xlsx</a> (application/vnd.openxmlformats-officedocument.spreadsheetml.sheet)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/87228641/87228642.png">Clifton_court_2011.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/87228641/87228643.png">Clifton_court_1990.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/87228641/87228644.png">RSAC092_2011.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/87228641/87228645.png">RSAC092_1990.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/87228641/87228646.png">RSAN018_2011.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/87228641/87228647.png">RSAN018_1990.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/87228641/87228648.png">RSAN007_2011.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/87228641/87228649.png">RSAN007_1990.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/87228641/87228650.pdf">csdpmanual.pdf</a> (application/pdf)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 16, 2023 11:04</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

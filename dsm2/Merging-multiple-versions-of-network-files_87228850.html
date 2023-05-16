@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>DSM2 version 8.2 : Merging multiple versions of network files</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">DSM2 version 8.2</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="DSM2_87228545.html">DSM2</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Tutorials_87228717.html">Tutorials</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CSDP-Tutorial_87228824.html">CSDP Tutorial</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            DSM2 version 8.2 : Merging multiple versions of network files
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Brad Tom</span> on Jan 27, 2021
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>One way to merge changes from multiple users is to use a file comparison tool such as WinMerge. However, if the users did not start with identical versions of the network file, this won't work.</p><p>I have added a feature to the CSDP (Network-Save Specified Channels), which helps merge changes from network files submitted by multiple users who did not start with the same version of the network file.</p><p>Here's how I use it to merge changes into an existing network file:</p><ol><li>Get a list of modified centerlines for the new network file.</li><li>Enter the list into Excel. </li><li>Copy the list, and paste-special-transpose.</li><li>In the CSDP, load the existing network file, which you might refer to as the current master version. <ol><li>Select Network-Save Specified Channels.</li><li>In the file selector dialog, enter a filename for the new master version. </li><li>Go back to Excel, and copy the transposed list of centerline numbers. Past them into the dialog that appears (below) in the Channel Numbers field. (The list will be tab delimited, which is fine). You may not be able to see all the centerline names in the text field (I'll have to work on that), but it will work.</li><li>Before clicking OK, click the &quot;Don't export specified channels&quot; checkbox. <strong>Make sure this option is selected before you click OK</strong>. When you click OK, CSDP will create a new network file containing all centerlines EXCEPT the ones you specified. <br/><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" height="250" src="attachments/87228850/87228851.png" data-image-src="attachments/87228850/87228851.png" data-unresolved-comment-count="0" data-linked-resource-id="87228851" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2018-12-21_12-0-36.png" data-base-url="http://msb-confluence" data-linked-resource-content-type="image/png" data-linked-resource-container-id="87228850" data-linked-resource-container-version="1"></span></li></ol></li><li>Now load the new network file.<ol><li>Select Network-Save Specified Channels.</li><li>In the file selector dialog, enter a filename for a temporary network file.</li><li>Go back to Excel, and copy the transposed list of centerline numbers. Paste them into the dialog that appears (below) in the Channel Numbers field. (The list will be tab delimited, which is fine). You may not be able to see all the centerline names in the text field (I'll have to work on that), but it will work.<span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" height="250" src="attachments/87228850/87228849.png" data-image-src="attachments/87228850/87228849.png" data-unresolved-comment-count="0" data-linked-resource-id="87228849" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2018-12-21_12-8-47.png" data-base-url="http://msb-confluence" data-linked-resource-content-type="image/png" data-linked-resource-container-id="87228850" data-linked-resource-container-version="1"></span></li><li>Before clicking OK, <strong>make sure the &quot;Don't export specified channels&quot; checkbox is NOT selected</strong>. When you click OK, CSDP will create a new network file containing only the centerlines you specified. </li></ol></li><li>Use a text editor to copy the contents (excluding the headers at the top) of the new temporary network file into the new master network file. Update the numElements field in the header of the new file. The value should be the sum of the values from the two files.</li></ol>
+                    </div>
+
+                                                            <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/87228850/87228849.png">image2018-12-21_12-8-47.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/87228850/87228851.png">image2018-12-21_12-0-36.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/87228850/87228852.png">image2018-12-21_11-49-11.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 16, 2023 11:04</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

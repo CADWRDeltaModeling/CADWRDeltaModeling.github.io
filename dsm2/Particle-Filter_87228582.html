@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>DSM2 version 8.2 : Particle Filter</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">DSM2 version 8.2</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="DSM2_87228545.html">DSM2</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Documentation_87228546.html">Documentation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="DSM2-Overview_87228548.html">DSM2 Overview</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            DSM2 version 8.2 : Particle Filter
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Yu (Joey) Zhou</span> on Jan 27, 2021
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h2 id="ParticleFilter-Overview">Overview</h2><p><em><em>Particle Filter</em> is a section in the PTM input where you set up particle-filters. Particle Filter is designed to modify the particle flux at node, without changing hydrodynamic condition, by keeping particles from entering the specified waterbody.</em></p><h2 id="ParticleFilter-Tables">Tables</h2><div class="code panel pdl" style="border-width: 1px;"><div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>Example</b></div><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: text; gutter: false; theme: Confluence" data-theme="Confluence">PARTICLE_FILTER 
+NAME       NODE WATERBODY FILLIN FILE                 PATH 
+filter_hor 8    chan:54   last   constant             0 
+filter_nf  280  chan:357  last   ./Filter_OP_NF.dss   /HIST+FILTER/FILTER_NF/FILTER_OP//IR-DECADE/DWR-BDO/  
+END
+</pre>
+</div></div><p><br/></p><p>This is for a normal filter, which locates at a node connecting to any waterbody. The PARTICLE_FILTER table defines particle filters by giving them names, associating them to a node and a waterbody, and setting up the passing efficiency (which could be constant value, or time-varying data in DSS).</p><h4 id="ParticleFilter-FieldDescriptions">Field Descriptions</h4><h5 id="ParticleFilter-NAME">NAME</h5><p>Name assigned to the particle filter. This is the identifier of the filter used elsewhere to refer to the filter.</p><h5 id="ParticleFilter-NODE">NODE</h5><p>The ID of the node to which the filter is attached.</p><h5 id="ParticleFilter-AT_WB">AT_WB</h5><p>The type and ID of the waterbody to which the filter is attached .</p><h5 id="ParticleFilter-FILLIN">FILLIN</h5><p>Method for filling in data if the time step of the assigned series is coarser than the time step of the model. See fillin types.</p><h5 id="ParticleFilter-FILE">FILE</h5><p>DSS or text file in which data are stored. Use consistent case when referring to the same file. You may also enter the word <em>constant<em> if you would like to assign a constant value to the input (the value will be entered in the next column). </em></em></p><h5 id="ParticleFilter-PATH">PATH</h5><p><em><em>The path within the text or DSS file of the time series data. If you used the <em>constant</em> keyword in the Input File column, enter the value here. The stored variable is particle passing efficiency, a float value between 0 ~ 1: 0-block; 1-totally pass. </em></em></p><p><br/></p><div class="confluence-information-macro confluence-information-macro-note"><span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>Filter locates on 1 node, at the side of 1 waterbody (channel, reservoir, source flow). Every filter is unique with 1 node &amp; 1 waterbody.</p><p>Filter is 2-directional, and is designed to function differently for each direction &lt;1&gt; waterbody-&gt;node: filter serves as a totally block with passing efficiency 0; &lt;2&gt; node-&gt;waterbody: filter is designed for changing particle decision-making, with passing efficiency as a re-adjusting factor; thus it only functions when node is connected with multiple waterbodies; i.e. it will not have any effect for a single chain of channel</p><p>Currently there's no delay concept for filter, because the filter delay rule is unknown, and our major concern is particles' fate (particle's movement only depends on hydro conditions, not interacted with each other)</p></div></div><p><div style="page-break-before:always;" /></p><p><br/></p><p><br/></p><p><br/></p>
+                    </div>
+
+                                        
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 16, 2023 11:04</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

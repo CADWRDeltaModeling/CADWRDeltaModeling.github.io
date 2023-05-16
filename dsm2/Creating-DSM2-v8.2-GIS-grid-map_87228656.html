@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>DSM2 version 8.2 : Creating DSM2 v8.2 GIS grid map</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">DSM2 version 8.2</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="DSM2_87228545.html">DSM2</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="DSM2-Geo-referenced-grid_87228639.html">DSM2 Geo referenced grid</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            DSM2 version 8.2 : Creating DSM2 v8.2 GIS grid map
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Brad Tom</span> on Jan 27, 2021
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h1 id="CreatingDSM2v8.2GISgridmap-Creatingshapefiles">Creating shapefiles</h1><p>The existing CSDP network file for the DSM2 8.2 network that is incomplete and contains errors. The network file for DSM2 v8.3 is accurate, but contains some additional channels and nodes that were moved. The easiest way to create shapefiles for the DSM2 v8.2 grid is to modify the network and landmark (nodes) for the 8.3 grid.</p><h1 id="CreatingDSM2v8.2GISgridmap-Verification">Verification</h1><p>The goal is to display the pdf gridmap as a background image in ArcGIS to verify that all the channel and node number are correct and in the correct locations.</p><ol><li>The following command (using ghostscript in Cygwin) creates a tif file from the dsm2 pdf grid map file:<br/>gs -q -dNOPAUSE -sDEVICE=tiffg4 -sOutputFile=gridmappdf.tif &quot;DSM2_Grid2.0 (1).pdf&quot; -c quit</li><li>Create a copy of the tif file, with &quot;marsh&quot; in the filename. This is because the pdf gridmap has the Suisun Marsh disconnected from the delta and printed in a different scale.</li><li>Next step is to identify a few landmarks that are easily identifiable on both the pdf grid map and on the basemap in ArcGIS. I chose 3 points: one in the north delta, near the confluence, and in the south delta. </li><li>In QGIS, select Plugins-Manage and Install Plugins:<br/><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" height="151" src="attachments/87228656/87228664.png" data-image-src="attachments/87228656/87228664.png" data-unresolved-comment-count="0" data-linked-resource-id="87228664" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2020-5-12_7-12-43.png" data-base-url="http://msb-confluence" data-linked-resource-content-type="image/png" data-linked-resource-container-id="87228656" data-linked-resource-container-version="1"></span></li><li>Search for &quot;GDAL&quot;, check the box &quot;Georeferencer GDAL&quot;, then click close: <br/><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" height="250" src="attachments/87228656/87228663.png" data-image-src="attachments/87228656/87228663.png" data-unresolved-comment-count="0" data-linked-resource-id="87228663" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2020-5-12_7-14-8.png" data-base-url="http://msb-confluence" data-linked-resource-content-type="image/png" data-linked-resource-container-id="87228656" data-linked-resource-container-version="1"></span></li><li>Select Raster-Georeferencer: <br/><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" height="246" src="attachments/87228656/87228662.png" data-image-src="attachments/87228656/87228662.png" data-unresolved-comment-count="0" data-linked-resource-id="87228662" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2020-5-12_7-14-51.png" data-base-url="http://msb-confluence" data-linked-resource-content-type="image/png" data-linked-resource-container-id="87228656" data-linked-resource-container-version="1"></span></li><li>Click the Open Raster button <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" height="94" src="attachments/87228656/87228661.png" data-image-src="attachments/87228656/87228661.png" data-unresolved-comment-count="0" data-linked-resource-id="87228661" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2020-5-12_7-15-45.png" data-base-url="http://msb-confluence" data-linked-resource-content-type="image/png" data-linked-resource-container-id="87228656" data-linked-resource-container-version="1"></span>'</li><li>Select the pdf file.</li><li>Select Settings-Transformaion Settings<span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" height="131" src="attachments/87228656/87228660.png" data-image-src="attachments/87228656/87228660.png" data-unresolved-comment-count="0" data-linked-resource-id="87228660" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2020-5-12_7-16-53.png" data-base-url="http://msb-confluence" data-linked-resource-content-type="image/png" data-linked-resource-container-id="87228656" data-linked-resource-container-version="1"></span></li><li>Use the following settings, including an output filename: <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-thumbnail" height="250" src="attachments/87228656/87228659.png" data-image-src="attachments/87228656/87228659.png" data-unresolved-comment-count="0" data-linked-resource-id="87228659" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2020-5-12_7-17-15.png" data-base-url="http://msb-confluence" data-linked-resource-content-type="image/png" data-linked-resource-container-id="87228656" data-linked-resource-container-version="1"></span></li><li>Click on a point in the map, and enter UTM coordinates, then click OK: <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" height="250" src="attachments/87228656/87228658.png" data-image-src="attachments/87228656/87228658.png" data-unresolved-comment-count="0" data-linked-resource-id="87228658" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2020-5-12_7-17-47.png" data-base-url="http://msb-confluence" data-linked-resource-content-type="image/png" data-linked-resource-container-id="87228656" data-linked-resource-container-version="1"></span></li><li>When you have specified coordinates for all your points, click the start georeferencing button. A tif file will be created, which you can load into ArcGIS.<span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-thumbnail" height="99" src="attachments/87228656/87228657.png" data-image-src="attachments/87228656/87228657.png" data-unresolved-comment-count="0" data-linked-resource-id="87228657" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2020-5-12_7-18-51.png" data-base-url="http://msb-confluence" data-linked-resource-content-type="image/png" data-linked-resource-container-id="87228656" data-linked-resource-container-version="1"></span></li><li>In ArcGIS, adjust the layer transparency. <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" height="250" src="attachments/87228656/87228655.png" data-image-src="attachments/87228656/87228655.png" data-unresolved-comment-count="0" data-linked-resource-id="87228655" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2020-5-12_9-25-2.png" data-base-url="http://msb-confluence" data-linked-resource-content-type="image/png" data-linked-resource-container-id="87228656" data-linked-resource-container-version="1"></span></li><li>Now you can easily compare the pdf gridmap to the GIS data.</li></ol><p><br/></p>
+                    </div>
+
+                                                            <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/87228656/87228655.png">image2020-5-12_9-25-2.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/87228656/87228657.png">image2020-5-12_7-18-51.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/87228656/87228658.png">image2020-5-12_7-17-47.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/87228656/87228659.png">image2020-5-12_7-17-15.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/87228656/87228660.png">image2020-5-12_7-16-53.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/87228656/87228661.png">image2020-5-12_7-15-45.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/87228656/87228662.png">image2020-5-12_7-14-51.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/87228656/87228663.png">image2020-5-12_7-14-8.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/87228656/87228664.png">image2020-5-12_7-12-43.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 16, 2023 11:04</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

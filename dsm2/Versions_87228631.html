@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>DSM2 version 8.2 : Versions</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">DSM2 version 8.2</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="DSM2_87228545.html">DSM2</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Documentation_87228546.html">Documentation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Delta-DSM2-Documentation_87228587.html">Delta DSM2 Documentation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CALSIM---DSM2-Integration_87228590.html">CALSIM - DSM2 Integration</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            DSM2 version 8.2 : Versions
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Yu (Joey) Zhou</span> on Jan 27, 2021
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>If grid/arc is changed (move/split/merge) at any boundaries of the Delta,  CALSIM → DSM2 preprocess scripts (and DSM2 configuration) should change, i.e. a different version. Some typical keywords are usually used as part of the scenario version name:</p><ul><li>Existing (EST) as the current Delta condition (could be different as time goes), No Action Alternative (NAA) as future scenarios without major grid change, Proposed Alternative (PA) as future scenarios with any major grid change (construction, etc)</li><li>Level of development (LOD, 2005, 2030 etc) represent Land of Use info, etc. Since census are not usually conduct very frequently, different scenarios could use the same LOD.</li><li>Sea level rise projection (SLR, 15cm, 45cm etc) represent climate change scenarios.</li></ul><p>California Water Fix settings of Calsim and DSM2 (page 70, Table B-8) could be <span class="inline-comment-marker" data-ref="785a679d-2de1-4ee8-aa73-0177deb39adb">referred as an example.</span></p><p><a href="http://baydeltaconservationplan.com/Libraries/Dynamic_Document_Library/Final_EIR-EIS_Appendix_5A_-_CALSIM_II_and_DSM2_Modeling_Simulations_and_Assumptions_Appendix_-_Section_B.sflb.ashx" class="external-link" rel="nofollow">http://baydeltaconservationplan.com/Libraries/Dynamic_Document_Library/Final_EIR-EIS_Appendix_5A_-_CALSIM_II_and_DSM2_Modeling_Simulations_and_Assumptions_Appendix_-_Section_B.sflb.ashx</a></p><p>Other than the above, operation change or constraints of standard usually only affects CalSIM results, not DSM2 settings. Thus the DSM2 preprocess and configuration don't need changes, i.e. we can just place in the results. A practical routine is use the same file name/modifier/path for various scenarios within 1 version category (modify folder name, or use unique name for the post-process).</p><p><br/></p><p>Some commonly used versions in the office are listed below.</p><ul><li>Original scripts package in DSM2/scripts or vista/scripts/dsm2. This is the original version.</li><li>CH2M helped preparing CWF related EST, NAA, PA, in combination of LOD and SLR. The earlier 2 are widely used as template in recent years.</li><li>SWP Delivery Capability Report (DCR), Water Storage Investment Program (WSIP)</li><li>Most widely used versions are in DSM2 v806 for now. Effort has been made to update it to DSM2 v812 with 1 practice for EST. (Annual Report <a href="http://msb-confluence/display/DM/2017">2017</a> Chapter 1)</li><li>One recent related practice is a new version for <a href="http://msb-confluence/pages/viewpage.action?pageId=7045412">CALSIM3 to DSM2</a> in <a href="http://msb-confluence/pages/viewpage.action?pageId=7045345">SWP Fingerprinting study</a>.</li></ul>
+                    </div>
+
+                                        
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 16, 2023 11:04</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

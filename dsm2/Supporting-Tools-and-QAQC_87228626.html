@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>DSM2 version 8.2 : Supporting Tools and QAQC</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">DSM2 version 8.2</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="DSM2_87228545.html">DSM2</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Documentation_87228546.html">Documentation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Delta-DSM2-Documentation_87228587.html">Delta DSM2 Documentation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="CALSIM---DSM2-Integration_87228590.html">CALSIM - DSM2 Integration</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            DSM2 version 8.2 : Supporting Tools and QAQC
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Yu (Joey) Zhou</span> on Jan 27, 2021
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>Currently, all the preprocess scripts are written with DSM2-<a href="http://msb-confluence/display/DM/Vista">Vista</a>. It's recommended to use the most updated version at <a href="https://github.com/CADWRDeltaModeling/dsm2-vista" class="external-link" rel="nofollow">https://github.com/CADWRDeltaModeling/dsm2-vista</a> (not the one included in DSM2 package). * Note to change the relevant environment variables.</p><p>1.</p><p>It is good practice to review and compare CalSIM outputs and its preprocessed results (*.dss) before running DSM2. <a href="http://msb-confluence/display/DM/HEC+Manuals">HEC-DSS</a> and DSM2-<a href="http://msb-confluence/display/DM/Vista">Vista</a> are the most widely used tools.</p><p><a href="http://www.hec.usace.army.mil/software/hec-dss/" class="external-link" rel="nofollow">http://www.hec.usace.army.mil/software/hec-dss/</a></p><p>2.</p><p>WRIMS' report tool is useful to compare CalSIM outputs, i.e. DSM2 inputs (timeseries\CALSIM\*DV.dss)</p><p><a href="https://www.water.ca.gov/Library/Modeling-and-Analysis/Modeling-Platforms/Water-Resource-Integrated-Modeling-System" class="external-link" rel="nofollow">https://www.water.ca.gov/Library/Modeling-and-Analysis/Modeling-Platforms/Water-Resource-Integrated-Modeling-System</a></p><p>* Note to keep consistence in the pathnames, time windows, etc between the comparison scenarios.</p><p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/87228626/87228630.png" data-image-src="attachments/87228626/87228630.png" data-unresolved-comment-count="0" data-linked-resource-id="87228630" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="wrimsReport.png" data-base-url="http://msb-confluence" data-linked-resource-content-type="image/png" data-linked-resource-container-id="87228626" data-linked-resource-container-version="1"></span></p><p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/87228626/87228629.jpg" data-image-src="attachments/87228626/87228629.jpg" data-unresolved-comment-count="0" data-linked-resource-id="87228629" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="wrimsReport1.JPG" data-base-url="http://msb-confluence" data-linked-resource-content-type="image/jpeg" data-linked-resource-container-id="87228626" data-linked-resource-container-version="1"></span></p><p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/87228626/87228628.jpg" data-image-src="attachments/87228626/87228628.jpg" data-unresolved-comment-count="0" data-linked-resource-id="87228628" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="wrimsReport2.JPG" data-base-url="http://msb-confluence" data-linked-resource-content-type="image/jpeg" data-linked-resource-container-id="87228626" data-linked-resource-container-version="1"></span></p><p><br/></p><p><br/></p><p>3.</p><p>Another good tool to compare between scenarios dss (in general) is the scripts <a href="http://msb-confluence/display/DM/Compare+DSS+Tool">Compare DSS Tool</a> in DSM2-<a href="http://msb-confluence/display/DM/Vista">Vista</a>.</p><p>${vista}\bin\compare_dss.bat</p><p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/87228626/87228627.jpg" data-image-src="attachments/87228626/87228627.jpg" data-unresolved-comment-count="0" data-linked-resource-id="87228627" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="compareDSS.JPG" data-base-url="http://msb-confluence" data-linked-resource-content-type="image/jpeg" data-linked-resource-container-id="87228626" data-linked-resource-container-version="1"></span></p><p>or a simplified version to check consistence ${vista}\bin\compare_dss_files.bat</p><p>* One good practice is to locate changes first (maybe the big ones), then use compare_dss.bat to specify and illustrate them.</p><p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/87228626/87228625.jpg" data-image-src="attachments/87228626/87228625.jpg" data-unresolved-comment-count="0" data-linked-resource-id="87228625" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="compareDSSfiles.JPG" data-base-url="http://msb-confluence" data-linked-resource-content-type="image/jpeg" data-linked-resource-container-id="87228626" data-linked-resource-container-version="1"></span></p><p><br/></p><p>4.</p><p>A quick way to check accuracy of preprocess is to compare Net Delta Flow (NDO) = inflows-outflow-CU</p><p><br/></p><p><br/></p>
+                    </div>
+
+                                                            <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/87228626/87228625.jpg">compareDSSfiles.JPG</a> (image/jpeg)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/87228626/87228627.jpg">compareDSS.JPG</a> (image/jpeg)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/87228626/87228628.jpg">wrimsReport2.JPG</a> (image/jpeg)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/87228626/87228629.jpg">wrimsReport1.JPG</a> (image/jpeg)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/87228626/87228630.png">wrimsReport.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 16, 2023 11:04</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

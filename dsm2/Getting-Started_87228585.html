@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>DSM2 version 8.2 : Getting Started</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">DSM2 version 8.2</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="DSM2_87228545.html">DSM2</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Documentation_87228546.html">Documentation</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            DSM2 version 8.2 : Getting Started
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Nicky Sandhu</span> on Jan 27, 2021
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h1 id="GettingStarted-GettingStarted">Getting Started</h1><p>Welcome to DSM2. This section of the documentation is intended to help you acquire and install dsm2, test that it is working and understand the layout of the distribution. After you have taken these steps, you will probably want to tackle the tutorials in the /tutorials folder of the distribution or consult the documentation or grid map in the /documentation folder -- a link has been provided on the start menu to make the documentation easier to find.</p><h2 id="GettingStarted-GettingDSM2">Getting DSM2</h2><p>DSM2 is distributed by the California Department of Water Resources Delta Modeling Section. You can find the model at our delta evaluation tools web site. Currently we distribute Windows executables, tutorials, source code, and a data package with templates for common studies.</p><h2 id="GettingStarted-InstallingDSM2InstallingDSM2"><span class="confluence-anchor-link" id="GettingStarted-InstallingDSM2"></span>Installing DSM2</h2><p>DSM2 comes with a binary installer, and you should be able to set it up easily with the default installation. There are two limitations:<br/>DSM2 is tested on Windows XP, Windows 7. It has a history of working on NT, and we would love to hear from you if you can confirm it works on other operating system.<br/>You need administrative permission to install the package.<br/>You should not set it up in a location with spaces. We recommend: D:\delta\dsm2 or C:\delta\dsm2...<br/>Set it up on a drive with a lot (gigabytes) of room. This will make it easier to use in-place</p><h2 id="GettingStarted-ThirdPartyExtrasRecommendedThirdPartyExtras"><span class="confluence-anchor-link" id="GettingStarted-ThirdPartyExtras"></span>Recommended Third Party Extras</h2><p>DSM2 comes with a numerical model and scripting capabilities. It is easier to use the model if you also have a text editor with syntax highlighting, a tool for differencing text files (&quot;diff tool&quot;), a dss viewer and an hdf5 viewer.</p><p>Open Command Window Here is a free &quot;power tool&quot; distributed by Microsoft (the download links are on the right hand side next to the description of the tool). It allows you to get a command window by right clicking a location in Windows file explorer. The tool is essential for working with DSM2 efficiently.<br/>Notepad++ is a text editor that works well with DSM2 input data and integrates nicely into the Windows file explorer. We support the editor with syntax highlighting. Here are some instructions for configuring Notepad++<br/>DiffMerge is a good free differencing tool for text files. Beyond Compare is an inexpensive commercial product that is intuitive and also compares Word files.<br/>Vista, one of the first graphical tools for examining data in HEC-DSS format, comes with DSM2 in the /dsm2/vista/bin directory.<br/>HEC-DSSVUE is distributed by HEC and is actively maintained. Most people use DSSVUE as their primary tool with Vista for specific tasks. An Excel add-in for DSS data is also available on the HEC web page.<br/>HDFView and HDF-Explorer are two independent browsers for the HDF5 file format. This lets you look inside a tidefile, one of the outputs of the model. You only need one of them.</p><h2 id="GettingStarted-TestLaunchingDSM2TestLaunchingDSM2"><span class="confluence-anchor-link" id="GettingStarted-TestLaunchingDSM2"></span>Test Launching DSM2</h2><p>The first step is to see whether the installation was successful. To do this, get a DOS-style command prompt window and type from any location:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: python; gutter: false; theme: Confluence" data-theme="Confluence">C:\&gt;hydro -v
+DSM2-Hydro 8.1.2
+Usage: Hydro input-file
+</pre>
+</div></div><p>If you got a message like the one above, you are up and running! Your next stop should be Tutorial #1 or Delta Tutorial #1. Look in the /tutorials folder of the distribution. The Basic Tutorials (Tutorial 1-6) feature most of the nuances of the model using a very simple grid and are an excellent way to learn about the model -- including subtleties that are new or caused confusion in the past. The Delta Tutorial series are more applied -- tasks on the Delta. Doing some of Delta Tutorial #1 as a motivator and then tackling the simple ones is a quick way to get a sense of the model.</p><p>If instead you get this:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: text; gutter: false; theme: Confluence" data-theme="Confluence">C:\&gt;hydro -v
+&#39;hydro&#39; is not recognized as an internal or external command,
+operable program or batch file.</pre>
+</div></div><p><br/>...you have a path problem and we need to straighten it out.</p><p><div style="page-break-before:always;" /></p><p />
+                    </div>
+
+                                        
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 16, 2023 11:04</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

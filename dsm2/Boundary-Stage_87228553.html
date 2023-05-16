@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>DSM2 version 8.2 : Boundary Stage</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">DSM2 version 8.2</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="DSM2_87228545.html">DSM2</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Documentation_87228546.html">Documentation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="DSM2-Overview_87228548.html">DSM2 Overview</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            DSM2 version 8.2 : Boundary Stage
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Nicky Sandhu</span> on Jan 27, 2021
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h2 id="BoundaryStage-Overview">Overview</h2><p>Stage Boundaries are locations where water levels are known. They are often used to represent tidal boundary of an estuary. This view defines the tidal boundary and assigns a time series to water levels at that boundary</p><h2 id="BoundaryStage-Tables">Tables</h2><div class="code panel pdl" style="border-width: 1px;"><div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>Example</b></div><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: text; gutter: false; theme: Confluence" data-theme="Confluence"># Description:
+# Historical stage at Martinez
+BOUNDARY_STAGE
+NAME  NODE  FILLIN  FILE           PATH                                                
+mtz   361   linear  ${BNDRYINPUT}  /FILL+CHAN/RSAC054/STAGE//15MIN/${HISTSTAGEVERSION}_NAVD/ 
+END</pre>
+</div></div><p><br/></p><h3 id="BoundaryStage-StageBoundaryTable">Stage Boundary Table</h3><p>The Stage Boundary table defines the stage boundary by giving it a name and associating it with a node. The table also assigns a time series to the boundary. Stage Boundary is a top-level layered table.</p><h4 id="BoundaryStage-FieldDescriptions">Field Descriptions</h4><h5 id="BoundaryStage-NAME">NAME</h5><p>Name assigned to the source. This is the identifier of the boundary and is referred to elsewhere in the input system. If you assign water quality you will use the same name in order to match concentration to flow.</p><h5 id="BoundaryStage-NODE">NODE</h5><p>Node number at which the source is applied.</p><h5 id="BoundaryStage-FILLIN">FILLIN</h5><p>Method for filling in data if the time step of the assigned series is coarser than the time step of the model. See fillin types</p><h5 id="BoundaryStage-FILE">FILE</h5><p>DSS or text file in which data are stored. Use consistent case when referring to the same file. You may also enter the word constant if you would like to assign a constant value to the input (the value will be entered in the next column).</p><h5 id="BoundaryStage-PATH">PATH</h5><p>The path within the text or DSS file of the time series data. If you used the constant keyword in the Input File column, enter the value (e.g. 4.22) here.</p><h4 id="BoundaryStage-TableInfo">Table Info</h4><h5 id="BoundaryStage-Identifier:">Identifier:</h5><p>NAME</p><h5 id="BoundaryStage-IncludeBlock:">Include Block:</h5><p>HYDRO_TIME_SERIES</p><div class="confluence-information-macro confluence-information-macro-note"><span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span><div class="confluence-information-macro-body">Only one boundary (flow or stage) should be assigned at a node. HYDRO is able to accept a sources and sinks at boundary nodes, but this is not good modeling practice.</div></div><p><div style="page-break-before:always;" /></p>
+                    </div>
+
+                                        
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 16, 2023 11:04</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

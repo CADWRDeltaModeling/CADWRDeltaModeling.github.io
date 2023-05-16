@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>DSM2 version 8.2 : DSM2 Bay-Delta Tutorial 3: Planning Simulation</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">DSM2 version 8.2</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="DSM2_87228545.html">DSM2</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Tutorials_87228717.html">Tutorials</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            DSM2 version 8.2 : DSM2 Bay-Delta Tutorial 3: Planning Simulation
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Nicky Sandhu</span> on Jan 27, 2021
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h2 id="DSM2BayDeltaTutorial3:PlanningSimulation-Purpose:ThegoalofthistutorialistolearntopreprocessandlaunchaBay-DeltaplanningsimulationusingCalSimOutputasthebasisforflowinputs.">Purpose: <strong><em>The goal of this tutorial is to learn to preprocess and launch a Bay-Delta planning simulation using CalSim Output as the basis for flow inputs.</em></strong></h2><h2 id="DSM2BayDeltaTutorial3:PlanningSimulation-TheCalSimstudywewilluseistheocap_2005A01A_EWA2_71_novamp_DV.dssprovidedinthetutorials/datadirectory.Wewillprepareandlaunchtherunusingbothtemporarybarriersandpermanentbarriersconfigurations(SDIP:SouthDeltaImprovemen"><strong><em>The CalSim study we will use is the ocap_2005A01A_EWA2_71_novamp_DV.dss provided in the tutorials/data directory. We will prepare and launch the run using both temporary barriers and permanent barriers configurations (SDIP: South Delta Improvements Program).</em></strong></h2><h2 id="DSM2BayDeltaTutorial3:PlanningSimulation-Preparation">Preparation</h2><p>We will begin by creating a study space to house the planning study.</p><ol><li><strong>Copy the study template:</strong><ol><li>In windows, navigate to <em>\\{DSM2_home}\study_templates.</em> Copy the <em>ocap_sdip</em> template to <em>\\{DSM2_home}\tutorial\ocap_sdip</em>. Copy the <em>ocap_temp_barrier</em> template to <em>\\{DSM2_home}\tutorial\ocap_temp_barrier</em></li><li>In each new study folder, create a directory called &quot;output&quot; if there is not such a folder there already.</li><li>Copy the file <em>ocap_2005A01A_EWA2_71_novamp_DV.dss</em> from <em>\\{DSM2_home}\timeseries</em> to <em>\\{DSM2_home}\tutorial\data\calsim.</em> Note that we just put this file in timeseries as a sample – in practice CalSim output will be exterior to the DSM2 distribution (or will be in the study folder).</li></ol></li></ol><p><br/></p><ol><li><strong>Preprocess for sdip and temp_barriers:</strong><ol><li>Navigate to the ocap_sdip study directory and open <em>config_sdip_ocap_71.inp</em>.</li><li>Make sure that the run dates are set to the full 1974-1991 sixteen year planning period. It is a good idea to preprocess the full period even if you want to run a subset of these dates.</li><li>Set the DSM2MODIFIER to ocap_sdip_tutorial.</li><li>Make sure that the DICU version in the configuration file is 2005, representing a 2005 level of development.</li><li>Makes sure the STAGE_VERSION in the configuration file is <span class="inline-comment-marker" data-ref="f872b815-4307-474a-9eb9-55b3d6e0e711">PLANNING-2-SL</span>.  </li><li>Make sure the configuration file is pointing to the right data, which means using the right directory, file and DSS path to find the CalSim results. In this case, set:<ol><li>CALSIMNAME to ocap_2005A01A_EWA2_71_novamp_DV (CalSim output file without the &quot;.dss&quot; extension)</li><li>CALSIMSTUDY_ORIGINAL to 2005A01A</li><li><span style="text-decoration: line-through;">CALSIMDIR to ../data/calsim</span></li></ol></li><li>Save your data</li><li>Launch the preprocessing system. Obtain a command prompt and type:</li></ol></li></ol><p>&gt; prepro config_sdip_ocap_71.inp</p><ol><li><ol><li>Repeat the steps above for the temporary barriers directory and the configuration file <em>config_ocap_temp_barriers.inp</em>. Make sure that the dates span the full 1974-1991 period and repeat the checks (d) and (e) for the temporary barrier configuration file.</li><li>Set the DSM2MODIFIER to ocap_temp_barrier_tutorial.</li><li>Launch the preprocessor with the command:</li></ol></li></ol><p>&gt; prepro config_ocap_temp_barriers.inp</p><ol><li><strong>Run DSM2:</strong><ol><li>In Windows Explorer, navigate to the directory, <em>\\{DSM2_home}\tutorial\ocap_sdip</em></li><li>Open the launch files hydro.inp and qual_ec.inp.</li><li>Set the dates to a shorter period, 1974-1976, so that the run will take reasonable time for the tutorial. Note that we always preprocess the full period even when we attempt to shorten the run.</li><li>Run the sdip simulation, for hydro and qual by typing:</li></ol></li></ol><p>&gt; hydro hydro.inp<span style="text-decoration: line-through;">,ocap_sdip_tutorial.dss</span><br/>&gt; qual qual_ec.inp</p><ol><li><ol><li>Uncomment and Repeat these steps (a-c) and run hydro and qual for the temporary barrier simulation.</li></ol></li></ol><p><br/></p><ol><li><strong>Examine the output:</strong><ol><li>The temporary barriers and permanent barriers protect water levels in the South Delta in very different ways. Compare the output at ROLD059, Old River at Tracy Blvd for your two runs to see the differences.</li></ol></li></ol>
+                    </div>
+
+                                        
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 16, 2023 11:04</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

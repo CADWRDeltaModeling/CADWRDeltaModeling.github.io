@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>DSM2 version 8.2 : IO Files</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">DSM2 version 8.2</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="DSM2_87228545.html">DSM2</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Documentation_87228546.html">Documentation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="DSM2-Overview_87228548.html">DSM2 Overview</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            DSM2 version 8.2 : IO Files
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Nicky Sandhu</span> on Jan 27, 2021
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h2 id="IOFiles-Overview:">Overview:</h2><p>The <em>IO_FILES</em> table is where you declare most of the non-dss output from a simulation, including echoed text output files, restart files and output tidefiles from HYDRO(input tidefiles are specified for QUAL and PTM in the <a href="file:///D:/delta/dsm2_v812_2309_fresh/documentation/html/reference/tidefile.html" class="external-link" rel="nofollow">TIDEFILE</a>section). IO_FILES can only be specified in the main text input file (hydro.inp, qual.inp, ptm.inp).</p><p /><h2 id="IOFiles-Tables:">Tables:</h2><p /><h3 class="table_name" id="IOFiles-io_fileIO_FILE"><span class="confluence-anchor-link" id="IOFiles-io_file"></span>IO_FILE</h3><h4 class="field_def_title" id="IOFiles-KeywordDescriptions">Keyword Descriptions</h4><h5 id="IOFiles-MODEL">MODEL</h5><p>Model generating the file. For a restart file this should be the model (hydro|qual) that is being restarted. For echoed output use the keyword &quot;output&quot;.</p><h5 id="IOFiles-TYPE">TYPE</h5><p>Type of file: hdf5, restart,  or &quot;none&quot; for echoed output.</p><h5 id="IOFiles-IO">IO</h5><p>Type of file &quot;in&quot; &quot;out&quot; or &quot;none&quot; for echoed output.</p><h5 id="IOFiles-INTERVAL">INTERVAL</h5><p>Interval, for hdf5 tidefile output.</p><h5 id="IOFiles-FILENAME">FILENAME</h5><p>Name of file. Should have a suitable extension: *.hrf for hydro restart file, *.qrffor qual restart file, *.h5 for hdf5 tidefile or *.out for echoed output.</p><h4 class="table_section_title" id="IOFiles-TableInfo">Table Info</h4><h5 id="IOFiles-Identifier:">Identifier:</h5><p>none: no layering</p><h5 id="IOFiles-IncludeBlock:">Include Block:</h5><p>none: launch file only</p><p><br/></p><h2 id="IOFiles-Examples:">Examples:</h2><h3 id="IOFiles-HYDROexample:">HYDRO example:</h3><p>This example includes standard hydro runtime output file, a restart output file that is regenerated every model day (overwriting the previous day's file), an hdf5 tidefile for passing information to QUAL and an echo file (replicate of input). All of the file names use text substitution -- the value would come from an environmental variable, ENVVARS section in the input file or ENVVARS section of a config file.</p><div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>IO_FILES      
+MODEL  TYPE     IO    INTERVAL FILENAME  
+output none     none  none     ${HYDROOUTFILE}  
+hydro  restart  out   1day     ${QUALRSTFILE}  
+hydro  hdf5     out   1hour    ${HYDROHDF5FILE}  
+hydro  echo     out   none     ${DSM2MODIFIER}_hydro_echo.inp  
+END</pre>
+</div></div><h3 id="IOFiles-QUALexample:">QUAL example:</h3><p>This example includes a general qual runtime output file, a restart output file that is regenerated every model day (overwriting the previous day's file), a restart file that will be used to generate the initial condition for the run, and an hdf5 tidefile for passing information to QUAL and an echo file (exact replicate of input).</p><div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>IO_FILES      
+MODEL  TYPE    IO   INTERVAL FILENAME  
+output none    none none     ${QUALOUTFILE}  
+qual   restart out  1day     ${QUALRESTART}  
+qual   restart in   none     qualinit_30SEP1999.qrf  
+qual   hdf5    out  1hour    ${QUALHDF5FILE} 
+qual   echo    out  none     ${DSM2MODIFIER}_qual_echo.inp  
+END</pre>
+</div></div><p><br/></p><h3 id="IOFiles-PTMexample:"><span>PTM example:</span></h3><p>This example includes a PTM trace file (which is required to produce flux DSS output) and an animation file (which is required for animated output).</p><div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>IO_FILES      
+MODEL TYPE  IO  INTERVAL FILENAME  
+ptm   trace out none     ${DSM2OUTPUTDIR}/trace.out  
+ptm   anim  out 15min    ${DSM2OUTPUTDIR}/anim.out
+ptm   echo  out none     ${DSM2MODIFIER}_ptm_echo.inp  
+END</pre>
+</div></div><p><br/></p><div class="confluence-information-macro confluence-information-macro-note"><span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>The runtime output file from HYDRO is used in the preparation of PTM visualization tools.</p></div></div><p><br/></p>
+                    </div>
+
+                                        
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 16, 2023 11:04</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

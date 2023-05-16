@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>DSM2 version 8.2 : Organizing a Study</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">DSM2 version 8.2</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="DSM2_87228545.html">DSM2</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Documentation_87228546.html">Documentation</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="DSM2-Overview_87228548.html">DSM2 Overview</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            DSM2 version 8.2 : Organizing a Study
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Nicky Sandhu</span> on Jan 27, 2021
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <div><h2 id="OrganizingaStudy-Overview">Overview</h2><p>The DSM2 installation directory is as follows:</p><div class="fragment"><pre class="fragment">/dsm2
+  /bin            # where the executable files are
+  /common_input   # a repository of common input files
+  /studies
+     [empty]      # DO YOUR WORK HERE (if inside the distribution)
+  /study_templates    # ...and NOT here
+     /historical
+     /ocap_sdip
+        config_ocap_sdip.inp
+        hydro.inp
+        qual_ec.inp
+        /timeseries
+  /timeseries     # Archivable time series (historical
+                  # and series used as basis for preprocessing)
+  /tutorials
+</pre></div><h3 id="OrganizingaStudy-Explainingthedirectorystructure">Explaining the directory structure</h3><h3 id="OrganizingaStudy-bin">bin</h3><p>&quot;Bin&quot; stands for &quot;binary&quot; and refers to the executables. When you installed dsm2, your path variable got set to the new distribution.</p><h3 id="OrganizingaStudy-common_input">common_input</h3><p>The common input directory is a repository of files that are used in the standard templates. These files start with the name of the (parent) object, then the &quot;layer&quot; name then the version date. The templates refer to this directory often. You do not have to maintain these links, but please do not edit the files... the <a rel="nofollow">Layering</a> system should help with this.</p><h3 id="OrganizingaStudy-study_templates">study_templates</h3><p>This directory houses samples for historical and planning runs. They represent our latest setup as of the distribution. As the templates are updated they may point to newer files in <em>common_input</em>.</p><h3 id="OrganizingaStudy-studies">studies</h3><p>A study is an associated group of simulations, which might involve any combination of DSM2 modules. Often the study compares several different alternatives. Many DSM2 modelers prefer to house different alternatives in different folders, but there are good reasons to house them in one study folder and just use different configuration files. To get started you will typically copy one of the study_template sub-directories to the /study folder. Don't change the ones in study_templates!</p><h3 id="OrganizingaStudy-timeseries">timeseries</h3><p>The <em>timeseries</em> directory contains the timeseries you will need in the regular course of working with DSM2. Since the data that are most reusable are historical and DICU, that is most of what you will find here. We don't recommend putting study-specific files (e.g. CALSIM output) in this directory.</p><h3 id="OrganizingaStudy-tutorials">tutorials</h3><p>The <em>tutorials</em> directory is a workspace for using the tutorials. It is a lot like /studies in the sense that you will copy templates here.</p><p><div style="page-break-before:always;" /></p></div>
+                    </div>
+
+                                        
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 16, 2023 11:04</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

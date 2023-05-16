@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>DSM2 version 8.2 : DSM2 Bay-Delta Tutorial 2: Source Tracking (Fingerprinting)</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">DSM2 version 8.2</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="DSM2_87228545.html">DSM2</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Tutorials_87228717.html">Tutorials</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            DSM2 version 8.2 : DSM2 Bay-Delta Tutorial 2: Source Tracking (Fingerprinting)
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Nicky Sandhu</span> on Jan 27, 2021
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h2 id="DSM2BayDeltaTutorial2:SourceTracking(Fingerprinting)-Purpose:Thepurposeofthistutorialistousethesourcetrackingcapabilitiesofthemodeltocreateafingerprintingstudy.Wewillsetupbothvolumetricandconcentration-basedfingerprintingandvisualizetheresults.">Purpose: <strong><em>The purpose of this tutorial is to use the source tracking capabilities of the model to create a fingerprinting study. We will set up both volumetric and concentration-based fingerprinting and visualize the results.</em></strong></h2><p><br/></p><ol><li><strong>Reopen the historical tutorial</strong><ol><li>In windows, navigate to <em>\\{DSM2_home}\tutorial\historical</em>. (folders and files are copied as described in the Delta tutorial 1)</li></ol></li></ol><p><br/></p><ol><li><strong>Create a model for source tracking:</strong></li></ol><p>In the background, source tracking imposes a computational cost on QUAL that is the same as one additional constituent per source. For this reason, it is useful to comment out source tracking as a standard course of running DSM2. But when you desire source tracking, you can uncomment it as follows:</p><ol><li><ol><li>In <em>historical_qual_ec.inp</em>, locate the GROUPS include section.</li><li>Uncomment the group definitions for source tracking (delete the # sign at the start of the line). You may wish to review the referenced file to see how the groups are identified.</li><li>Similarly uncomment the two fingerprinting files – the ones that have &quot;source_track&quot; in their names.</li></ol></li></ol><p><br/></p><ol><li><strong>Define volumetric inputs</strong><ol><li>Create the QUAL volumetric input file<em>.</em> Copy <em>historical_qual_ec.inp</em> and rename as <em>historical_qual_vol.inp</em>.</li><li>Modify the concentration blocks. Go through each of the node and reservoir concentration files for QUAL ec. Modify the constituent (variable) to <em>unit</em>, value (FILE) to constant, (PATH) to 100. This step is conceptually simple, but will produce a large file – feel free to break it into several files if you prefer. If you are using Notepad++, you may want to use its column delete/copying features (press alt while you make your selection).</li><li>Compare what you produced to the existing files in common_input that have &quot;volumetric&quot; in their names (node and reservoir concentration). Are they the same input? How could you test this using the echoed output?</li></ol></li></ol><p><br/></p><ol><li><strong>Define the fingerprinting output</strong><ol><li>Specify Clifton Court concentration output for each of the source groups defined in the previous step, for both constituents: <em>ec</em> and <em>unit</em>, in block OUTPUT_RESERVOIR_SOURCE_TRACK. The name should be clifton_court, the concentration (variable) should be ec or volume and the interval should be 1day. Avoid redundancy or use of the source in the output name: i.e. use &quot;clifton_court&quot; for the name, not &quot;clifton_ag&quot; or &quot;clifton_ec&quot; . Because the source information is recorded in the F part of output dss file.</li><li>Similar specification could be defined for channel source track in block OUTPUT_CHANNEL_SOURCE_TRACK. Pick any channel you are interested and do the definition.</li></ol></li></ol><p><br/></p><ol><li><strong>Run HYDRO and QUAL for One Year</strong><ol><li>Using <em>historical_hydro.inp,</em> <em>historical_qual_ec.inp,</em> <em>historical_qual_vol.inp</em> as the launch files, run HYDRO and QUAL for one year in 2002. Start QUAL a day later to avoid mass conservation errors in the first hour. Make sure the init_conc variable (in SCALAR block) is set to zero so that there will be no initial condition contribution for any variables (note: for a volumetric fingerprint, it may be useful to make this concentration 100 if you want to include initial conditions in the fingerprint analysis).</li><li>Open the output file (<em>historical.dss</em>), and examine the results.</li></ol></li></ol><p><br/></p><ol><li><strong>Process the output</strong><ol><li>Use VISTA or HEC-DSSVUE to open up the output file. Copy May-September concentrations source track of Clifton Court for each location. Paste the output into a new sheet in the Excel provided called excel_fingerprint.xls, which you can use as a reference. Use the &quot;stacked area plot&quot; in Excel (one of the standard Excel plot types) to plot up the fingerprint results.</li></ol></li></ol><p><br/></p>
+                    </div>
+
+                                        
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 16, 2023 11:04</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>
