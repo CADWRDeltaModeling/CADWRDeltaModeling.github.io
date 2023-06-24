@@ -59,8 +59,9 @@ globally you can set channel prioritiy per-environment::
 
 $ conda activate target_env
 $ conda config --env --set channel_priority strict
-$ conda config --env --append channels conda-forge
-$ conda config --env --prepend channels cadwr-dms
+$ conda config --env --append channels cadwr-dms
+$ conda config --env --prepend channels conda-forge
+
 
 Note that the last two lines are not needed to be strict, but they are a great way to hard wire the channels so that you can do casual installs of new libraries without messing up
 the channel order.
