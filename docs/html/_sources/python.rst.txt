@@ -6,9 +6,7 @@ Python Configuration and Usage
 Intro to Conda and Python environments
 ######################################
 
-We currently recommend conda as a package manager for our libraries. Most 
-of our production libraries are deployed via conda. Support for other package management
-systems such as PyPi is in the works, but minimally supported at this time. For brevity we begin with the recommended practice for those who are already familiar. Then we follow up with some details that may make it easy to do things like development. 
+Most of our production libraries are deployed via conda. For brevity we begin with the recommended practice for those who are already familiar. Then we follow up with some details that may make it easy to do things like development. 
 
 Bottom line for experienced users
 #################################

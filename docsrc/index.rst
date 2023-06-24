@@ -31,7 +31,6 @@ Links to project pages and documentation:
    :maxdepth: 1
    :hidden:
    :caption: Models
-   
    models
    
    
@@ -74,7 +73,7 @@ General Documentation and Tools
 
 
 Learning About the Bay-Delta and Models
-*******************************
+***************************************
 
 :doc:`delta_overview`
 

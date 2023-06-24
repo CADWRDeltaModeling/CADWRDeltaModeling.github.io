@@ -11,11 +11,11 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -27,7 +27,11 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> DWR Delta Modeling Base Page
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            DWR Delta Modeling Base Page
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -94,11 +98,16 @@
 <p>We use Sphinx to create documentation across all our products. Here is what you need to know to participate:</p>
 <section id="python">
 <h2>Python<a class="headerlink" href="#python" title="Permalink to this heading"></a></h2>
-<p>You need to have Python on your system, as it is the engine of Sphinx. We recommend you follow our <span class="xref std std-ref">python</span> guidelines for setting up Python using miniconda. This documentation describes what a Python environment is, and a sufficient environment for documenting all our products is represented by environment.yml. This includes the installation of sphinx.</p>
+<p>You need to have Python on your system, as it is the engine of Sphinx. We recommend you follow our <span class="xref std std-ref">python</span> guidelines for setting up Python using miniconda. This documentation describes what a Python environment is.</p>
 </section>
 <section id="sphinx">
 <h2>Sphinx<a class="headerlink" href="#sphinx" title="Permalink to this heading"></a></h2>
 <p>This documentation was created using <a class="reference external" href="https://www.sphinx-doc.org/en/master/">sphinx</a> which is a python-based documentation tool originally facilitating the documentation of Python projects but now used for manual production in general, a big example being <cite>ReadTheDocs &lt;https://readthedocs.org&gt;</cite> which adds templates and version control. Sphinx has powerful ways of embedding documentation from python functions, youtube tutorials, images etc. There are graphical tools for previewing (e.g. sublime) but little in-house experience with them.</p>
+<p>We have a sample environment for sphinx that works across a wide swath of our products. There is one catch, however, which is that sphinx works by introspection – importing and interrogating the python package that is being documented. This means you the package and its dependencies have to be available. This makes it impossible for us to give out a single environment for sphinx.</p>
+<p>There are several ways to approach this:
+* You can use our generic but fairly full-featured sphinx_env.yml &lt;here&gt; as a start and append the project name that you are documenting to the dependencies section. P
+* For some larger programs such as SCHISM a sphinx environment is offered that covers one or more libraries plus the required sphinx. See BayDeltaSCHISM/sphinx_env.yml.
+* There is a tools called conda-merge that you can use to fuse together env.yml files that you could use to combine the example sphinx environment with your projects recommended minimum environment.</p>
 <section id="running-sphinx">
 <h3>Running Sphinx<a class="headerlink" href="#running-sphinx" title="Permalink to this heading"></a></h3>
 <p>There isn’t much to this:</p>
