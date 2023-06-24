@@ -20,7 +20,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Creating/Edit Documentation" href="add_doc.html" />
-    <link rel="prev" title="Bay-Delta SCHISM" href="models.html" /> 
+    <link rel="prev" title="Delta Modeling Documentation Roadmap" href="index.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -58,19 +58,17 @@
 <p class="caption" role="heading"><span class="caption-text">General documentation</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Python Configuration and Usage</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#intro-to-conda-and-python-environments">Intro to Conda and Python environments</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#bottom-line-for-experienced-users">Bottom line for experienced users</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#use-miniconda-with-environments">Use miniconda with environments</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#channel-priorities">Channel priorities</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#preferred-channels">Preferred channels</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#channel-priority-strict">Channel priority strict</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#intro-to-conda-and-python-environments">Intro to Conda and Python environments</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#bottom-line-for-experienced-users">Bottom line for experienced users</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#channel-priorities">Channel priorities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#channel-priority-strict">Channel priority strict</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#background-and-details">Background and Details</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#environment">Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#developer-installs-fast-interaction-with-github-git">Developer installs: fast interaction with GitHub/Git</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#background-and-details">Background and Details</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#environment">Environment</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#developer-installs-fast-interaction-with-github-gitea">Developer installs: fast interaction with GitHub/GiTea</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#coding-standards">Coding standards</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#conda-and-python-version">Conda and Python version</a></li>
 </ul>
@@ -110,12 +108,11 @@
 <section id="intro-to-conda-and-python-environments">
 <h2>Intro to Conda and Python environments<a class="headerlink" href="#intro-to-conda-and-python-environments" title="Permalink to this heading"></a></h2>
 <p>Most of our production libraries are deployed via conda. For brevity we begin with the recommended practice for those who are already familiar. Then we follow up with some details that may make it easy to do things like development.</p>
-</section>
 <section id="bottom-line-for-experienced-users">
-<h2>Bottom line for experienced users<a class="headerlink" href="#bottom-line-for-experienced-users" title="Permalink to this heading"></a></h2>
-<section id="use-miniconda-with-environments">
-<h3>Use miniconda with environments<a class="headerlink" href="#use-miniconda-with-environments" title="Permalink to this heading"></a></h3>
-<p><a class="reference external" href="https://docs.conda.io/en/latest/miniconda.html">Miniconda</a> is a python installation that serves as both a very lean python plus a package manager for environments (background is given below). Installation is straightforward and similar to other apps. You may be interested in the <a class="reference external" href="https://www.anaconda.com/blog/a-faster-conda-for-a-growing-community">libmamba</a> solver which is more efficient than the native one that comes with conda.</p>
+<h3>Bottom line for experienced users<a class="headerlink" href="#bottom-line-for-experienced-users" title="Permalink to this heading"></a></h3>
+<p>Use miniconda with environments</p>
+<p><a class="reference external" href="https://docs.conda.io/en/latest/miniconda.html">Miniconda</a> is a python installation that serves as both a very lean python plus a package manager for environments (background is given below). Installation is straightforward and similar to other apps. It is easy to install. You may be interested in the <a class="reference external" href="https://www.anaconda.com/blog/a-faster-conda-for-a-growing-community">libmamba</a>
+solver which is more efficient than the native one that comes with conda.</p>
 <p>Many of our larger projects such as BayDeltaSCHISM come with environment.yml files in their base directories, which list the preprequisite libraries you would need. For example, the BayDeltaSCHISM project provides a monolith <em>schism_environment.yml</em> that is known to successfully install and covers a lot of the tools used with SCHISM such as schimpy.</p>
 <p>Use the command below to create an environment (with name my_env_name):</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">env</span> <span class="n">create</span> <span class="o">-</span><span class="n">n</span> <span class="n">my_env_name</span> <span class="o">-</span><span class="n">f</span> <span class="n">environment</span><span class="o">.</span><span class="n">yml</span>
@@ -125,25 +122,27 @@
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">env</span> <span class="n">update</span> <span class="o">-</span><span class="n">n</span> <span class="n">my_env_name</span> <span class="o">-</span><span class="n">f</span> <span class="n">environment</span><span class="o">.</span><span class="n">yml</span>
 </pre></div>
 </div>
-<p>These are just suggestions. Many of us maintain environments that are specialized for our needs, often starting with the aggregated distributions described above.</p>
+<p>These are just suggestions, and note that the file name typically won’t be exactly <cite>environment.yml</cite>.
+The distributed environment.yml files will get you going, but many of us
+tweak the distributed environments for our needs.</p>
 </section>
 <section id="channel-priorities">
 <h3>Channel priorities<a class="headerlink" href="#channel-priorities" title="Permalink to this heading"></a></h3>
-<section id="preferred-channels">
-<h4>Preferred channels<a class="headerlink" href="#preferred-channels" title="Permalink to this heading"></a></h4>
-<p>We maintain our own conda channel in order to provide stability for a few libraries, but in a lot of cases you should set up conda priorities in this order:</p>
+<p>We maintain our own conda channel in order to provide stability for a few libraries,
+but in a lot of cases you should set up conda priorities in this order:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">channels</span><span class="p">:</span>
+  <span class="o">-</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
   <span class="o">-</span> <span class="n">defaults</span>
   <span class="o">-</span> <span class="n">cadwr</span><span class="o">-</span><span class="n">dms</span>
-  <span class="o">-</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
 </pre></div>
 </div>
 <p>You can specifiy this in yaml. You can also do it in your conda configuration which is covered in the next section.</p>
-<p>This obviously is specific to our products (see next section). The main incompatibility we are dealing with is between the two major sources: “defaults” and “conda-forge”. The defaults and conda-forge channels are not fully compatible, particularly for the numpy library. The problem is that they are based on different linear algebra libraries at the system level, and those do not play well with one another. This is a cascading problem for other libraries that use native dlls – some libraries like gdal (geo spatial) depend on numpy and have to “link” to the same runtime libraries as the numpy they depend on. This means that for a number of core tools, we need to pick our poison and the poison we picked is defaults. If you know what you are doing you can do conda-forge, but your contributed code will be expected to work with defaults.</p>
+<p>This obviously is specific to our products (see next section). The main incompatibility we deal with is between the two major sources: “defaults” and “conda-forge”. The defaults and conda-forge channels are not fully compatible, particularly for the numpy library. The problem is that they are based on different linear algebra libraries at the system level, and those do not play well with one another. This is a cascading problem for other libraries like gdal (geo spatial) that depend on numpy and have to “link” to the same runtime libraries as the numpy they depend on. This means that for a number of core tools, we need to pick our poison and the poison we pick currently is conda-forge because defaults doesn’t seem well maintained.</p>
 </section>
 <section id="channel-priority-strict">
-<h4>Channel priority strict<a class="headerlink" href="#channel-priority-strict" title="Permalink to this heading"></a></h4>
-<p>We recommend you set conda channel priority strict. If you are only using our products or are a member of the DWR modeling group you could do this globally in your base environment:</p>
+<h3>Channel priority strict<a class="headerlink" href="#channel-priority-strict" title="Permalink to this heading"></a></h3>
+<p>If you can afford working with our channel recommendations, we recommend you set conda channel priority strict.
+If you are only using our products or are a member of the DWR modeling group you could do this globally in your base environment:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ conda config --set channel_priority strict
 </pre></div>
 </div>
@@ -157,32 +156,32 @@ $ conda config --env --prepend channels cadwr-dms
 </div>
 <p>Note that the last two lines are not needed to be strict, but they are a great way to hard wire the channels so that you can do casual installs of new libraries without messing up
 the channel order.</p>
-<p>Much of the reason for setting these preferences is to avoid the lack of persistence of channel priority during updates if libraries that are installed using the -C option in conda. Channel preferences with -C do not stick. Besides, if you have your channel priorities correct and strict (topics covered below) you often don’t need -C anyway.</p>
-</section>
+<p>The reason for setting these preferences is to avoid the lack of persistence of channel priority during updates. Channel preferences with yaml files or -C installations do not stick. Setting them in the conda configuration makes them permanent.</p>
 </section>
 </section>
 <section id="background-and-details">
 <h2>Background and Details<a class="headerlink" href="#background-and-details" title="Permalink to this heading"></a></h2>
-<p>Python is a confederation of libraries, and the more powerful it gets the more the library versions have to be coordinated so that they work well together. This is what a package manager (conda) does. In 2016, it was reasonable to want to find a “universal bundle” you could use for everything, a monolithic distribution like Anaconda that puts an enormous number of compatible libraries at your disposal. Fast-forward to 2023 and Python libraries have proliferated and coming up with a set that is fully compatible is a hard optimization problem. A good installer that accurately lists dependencies (without over or under-reaching) helps the “solve” but even still usage has gravitated towards the minimal miniconda plus a user specific environment so that you don’t catch a lot of requirements and constraints from packages you don’t actually use. The example environment below shows how to do this without hardwiring a lot of versions –you still get a lot of help from the conda package manager getting things that fit together.</p>
+<p>The idea of conda environments starts out a bit difficult. As you adjust you may want more information. Here it is…</p>
+<p>Python is a confederation of libraries, and the more powerful it gets the more the library versions have to be coordinated so that they work well together. This is what a package manager like conda does. In 2016, it was reasonable to want to find a “universal bundle” you could use for everything, a monolithic distribution like Anaconda that puts an enormous number of compatible libraries at your disposal. Fast-forward to 2023 and Python libraries have proliferated and coming up with a set that is fully compatible is a hard optimization problem. A good installer that accurately lists dependencies (without over or under-reaching) helps the “solve” but even still usage has gravitated towards the minimal miniconda plus a user specific environment so that you don’t catch a lot of requirements and constraints from packages you don’t actually use. The example environment below shows how to do this without hardwiring a lot of versions – you still get a lot of help from the conda package manager getting things that fit together.</p>
 <p>For best practices see this <a class="reference external" href="https://carpentries-incubator.github.io/introduction-to-conda-for-data-scientists/setup/">Scipy tutorial</a></p>
-<p>Please also note that even though it is experimental, the new <a class="reference external" href="https://conda.github.io/conda-libmamba-solver/">libmamba solver</a>  has worked well for us and might be worth exploring. It does a better job of reconciling library versions and it it is much faster.</p>
-</section>
+<p>Please also note that the new <a class="reference external" href="https://conda.github.io/conda-libmamba-solver/">libmamba solver</a>  has worked well for us and might be worth exploring. It does a better job of reconciling library versions and it it is much faster.</p>
 <section id="environment">
-<h2>Environment<a class="headerlink" href="#environment" title="Permalink to this heading"></a></h2>
+<h3>Environment<a class="headerlink" href="#environment" title="Permalink to this heading"></a></h3>
 <p>What is an environment? A package manager?</p>
-<p>In a nutshell, a package manager (miniconda) allows you to toggle between virtual environments, which behave like complete python setups that are optimized for particular uses. Your microconda python installation will come configured with a base environment, but you won’t do anything with that except create other environments that have unique bundles of libraries tuned for specific tasks.  You can have a number of these on your computer – perhaps targeting different use cases that require different and conflicting sets of libraries.</p>
-<p>A miniconda base environment will be very stripped down so that it never breaks. This is what distinguishes it with Anaconda, an older product which is a giant and feature rich environment but that tends to break as you add in new components. With miniconda, as long as base is in good shape, you can create and manage other environments with little potential for something going wrong and if something does go wrong you just replace the environment. On our end, we can provide specifications for complete environements in the form of yaml files that will provide everything you need for a set of tasks.</p>
+<p>In a nutshell, a package manager (miniconda) allows you to toggle between complete python setups that are optimized for particular uses with particular bunches of libraries. Your microconda python installation will come configured with a base environment, but you will definitely not want to touch it very much. Instead, create other environments that have unique bundles of libraries tuned for specific tasks.  You can have a number of these on your computer – perhaps targeting different use cases that require different and conflicting sets of libraries.</p>
+<p>A miniconda base environment should be very stripped down so that it never breaks. This is what distinguishes it with Anaconda, an older product which is a giant and feature rich environment but that tends to break as you add in new components. With miniconda, as long as base is not corrupted, you can create and manage other environments with little potential for something going wrong and if something does go wrong you just replace the offending environment. On our end, we can provide specifications for complete environements in the form of yaml files that will provide everything you need for a set of tasks.</p>
+<p>For some uses like SCHISM or DSM2 modeling we have set up recommended environments that not only fulfill the requirements of our pre- and post-processing scripts but also establish a typical analysis environment for modeliers. Use them if they help.</p>
 </section>
-<section id="developer-installs-fast-interaction-with-github-gitea">
-<h2>Developer installs: fast interaction with GitHub/GiTea<a class="headerlink" href="#developer-installs-fast-interaction-with-github-gitea" title="Permalink to this heading"></a></h2>
-<p>If you are a developer or using a product (say vtools) that is fast moving and likely to lead to changes to that module, you may prefer a developer install rather than an ordinary conda install. This is more inconvenient, so it is probably a bad way to get your feet wet. However some problems with using conda when things are changing fast are:</p>
+<section id="developer-installs-fast-interaction-with-github-git">
+<h3>Developer installs: fast interaction with GitHub/Git<a class="headerlink" href="#developer-installs-fast-interaction-with-github-git" title="Permalink to this heading"></a></h3>
+<p>If you are a developer or using a product (say vtools) that is fast moving and likely to lead to changes to that module, you may prefer a developer install rather than an ordinary conda install. This is probably a bad way to get your feet wet. However some problems with using conda when things are changing fast are:</p>
 <ul class="simple">
-<li><p>There is a lot of automatic machinery between a GitHub commit on a library and when it appears in our channel. That pipeline occasionally it fails or slows.</p></li>
+<li><p>There is a lot of automatic machinery between a GitHub commit on a library and when it appears in our channel. That pipeline occasionally fails or slows.</p></li>
 <li><p>Not every project is on our conda channel.</p></li>
 <li><p>Conda installation locations are buried and hard to access. This is particularly inconvenient if there are data or examples.</p></li>
 <li><p>Propagating changes you make in a conda installation back to GitHub is error prone.</p></li>
 </ul>
-<p>By contrast a developer install is based on a clone from GitHub. You clone the project yourself first, say off GitHub or Gitea and put it where ever you want. You are now using, developing and versioning all from the same copy.</p>
+<p>A developer install is based on a clone from GitHub and the way that you update it is by pulling from GitHub. You clone the project yourself first, say off GitHub or Gitea and put it where ever you want. You are now using, developing and versioning all from the same copy.</p>
 <p>Developer installs are done with pip which is a package manager like conda.  Conda community decided not to compete with this method. Go to the parent directory of the project you are installing, which should have a file called setup.py in it. Then use this command:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">deps</span> <span class="o">-</span><span class="n">e</span> <span class="o">.</span>
 </pre></div>
@@ -191,29 +190,31 @@ the channel order.</p>
 <p>Here are three hints to making it work:</p>
 <ol class="arabic simple">
 <li><p>Do your best to install dependencies first using conda. These are listed in the requires or install_requires list inside setup.py at the parent directory of the module.</p></li>
-<li><p>Use the <cite>–no-deps</cite> flag to suppress the installation of dependencies. Note that if you are missing things, the module (maybe even the install?) may fail. But at least you will know why and you can remedy the missing piece.</p></li>
-<li><p>You can install first in conda the ordinary way then do a developer install with <cite>–no-deps</cite>. This works fine and assures that conda has already detected and met any dependent library requirements.</p></li>
+<li><p>You can use the <cite>–no-deps</cite> flag to suppress the installation of dependencies. Note that if you are missing things, the module (maybe even the install?) may fail.</p></li>
+<li><p>You can install first in conda the ordinary way then follow with a developer install with <cite>–no-deps</cite>. This not only is allowed, it assures that conda has already detected and met any dependent library requirements. It seems redundant, but works very well.</p></li>
 </ol>
+</section>
 </section>
 <section id="coding-standards">
 <h2>Coding standards<a class="headerlink" href="#coding-standards" title="Permalink to this heading"></a></h2>
 <section id="conda-and-python-version">
 <h3>Conda and Python version<a class="headerlink" href="#conda-and-python-version" title="Permalink to this heading"></a></h3>
 <p>Please use conda (anaconda or miniconda) to setup and install python and its dependencies. Use Python 3.9.x as of 2023.</p>
-<p>Use git to clone to your local directory. Use a developer install (pip install –no-deps -e .) to install. Note that you should use pip judiciously and with the –no-deps flag to avoid pip (which is a competitive package manager) from “stealing” material from conda and causing a mess.</p>
+<p>Use git to clone to your local directory. Use a developer install (pip install –no-deps -e .) to install. Note that you should use pip judiciously and with the –no-deps flag to avoid pip invasively taking over dependencies..</p>
 <p>Please adhere to <a class="reference external" href="https://www.python.org/dev/peps/pep-0008/">PEP-8</a> which serves as the official style guide for Python. Both Spyder and VS Code provide hooks to autopep8 which can help with “linting” (auto correcting to these and other standards. For instance, please use these guidelines for style as they are a python standard:</p>
 <ul>
 <li><p>Use lower case consistently ( no exceptions for things like institutional names or common acronyms. So not: so_not_USGS ).</p></li>
 <li><p>CamelForClassNames is OK.</p></li>
 <li><p>Use numpydoc notation for function documentation (input output parameters). See the <a class="reference external" href="https://numpydoc.readthedocs.io/en/latest/example.html">example</a>.</p></li>
 <li><p>Use Autopep8 (autopep8-PyPI) with your editor if possible.</p></li>
-<li><p>On windows, set a git configuration for autocrlf:</p>
+<li><p>Use the autocrlf on Git:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git config --global core.autocrlf true
 </pre></div>
 </div>
 </li>
 </ul>
-<p>All our github repos are at  <a class="reference external" href="https://github.com/CADWRDeltaModeling">https://github.com/CADWRDeltaModeling</a>. Please ask for write permissions if you would like to submit code there. Forking and submitting pull requests is also fine.</p>
+<p>All our github repos are at  <a class="reference external" href="https://github.com/CADWRDeltaModeling">https://github.com/CADWRDeltaModeling</a>.
+Please ask for write permissions if you would like to submit code there. Forking and submitting pull requests are also fine.</p>
 <p>Project/Module Structure
 Python tools are expected to use python cookie cutter. <a class="reference external" href="https://cookiecutter.readthedocs.io/en/latest/">https://cookiecutter.readthedocs.io/en/latest/</a>. See Python New Project Template for details.</p>
 </section>
@@ -228,7 +229,7 @@ Python tools are expected to use python cookie cutter. <a class="reference exter
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="models.html" class="btn btn-neutral float-left" title="Bay-Delta SCHISM" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="index.html" class="btn btn-neutral float-left" title="Delta Modeling Documentation Roadmap" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="add_doc.html" class="btn btn-neutral float-right" title="Creating/Edit Documentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
