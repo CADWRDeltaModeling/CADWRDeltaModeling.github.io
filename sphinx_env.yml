@@ -1,0 +1,26 @@
+# This is a full featured but generic sphinx environment. 
+# It contains the sphinx extenions we have used thus far.
+# However, there is a catch: Sphinx requires that you be
+# able to import the environment you are documenting, and this means that the projects 
+# dependencies must not break. For this reason, you may want to append the name of the project you are 
+# documenting. For some larger projects we have done this and offer a sphinx_env.yml that comes
+# pre-assembled.
+
+name: sphinx
+channels:
+  - conda-forge
+  - defaults
+  - cadwr-dms
+dependencies:
+  - python=3.9
+  - sphinx
+  - sphinx-design
+  - sphinx-argparse  
+  - sphinxcontrib-bibtex
+  - sphinx_rtd_theme
+  - nbsphinx
+  - numpydoc
+  - docutils
+  - matplotlib # needed for matplotlib.sphinxext.mathmply
+  - ipython    # neededd for IPython.sphinxext.ipython_directive
+  - pip
