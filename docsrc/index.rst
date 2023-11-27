@@ -31,8 +31,8 @@ Links to project pages and documentation:
    :maxdepth: 1
    :hidden:
    :caption: Models
-   models
    
+   models
    
 
 
