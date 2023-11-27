@@ -12,6 +12,7 @@ Bay-Delta SCHISM is a 3D model of the Bay-Delta
    
    Project Documentation, Getting Started, Learning <https://cadwrdeltamodeling.github.io/BayDeltaSCHISM/html/index.html>
    BayDeltaSCHISM GitHub repo <https://github.com/CADWRDeltaModeling/BayDeltaSCHISM>
+   bdo_bdsch_instr
 
 
 .. _dsm2:

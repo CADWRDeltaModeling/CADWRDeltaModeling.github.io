@@ -7,12 +7,12 @@ We use Sphinx to create documentation across all our products. Here is what you 
 
 Python
 ------
-You need to have Python on your system, as it is the engine of Sphinx. We recommend you follow our `Python Configuration and Usage`_ for setting up Python using miniconda. This documentation describes what a Python environment is.
+You need to have Python on your system, as it is the engine of Sphinx. We recommend you follow our :ref:`Python Configuration and Usage <Python Configuration and Usage>` for setting up Python using miniconda. This documentation describes what a Python environment is.
 
 
 Sphinx
 ------
-This documentation was created using `sphinx <https://www.sphinx-doc.org/en/master/>`_ which is a python-based documentation tool originally facilitating the documentation of Python projects but now used for manual production in general, a big example being `ReadTheDocs <https://readthedocs.org>` which adds templates and version control. Sphinx has powerful ways of embedding documentation from python functions, youtube tutorials, images etc. There are graphical tools for previewing (e.g. sublime) but little in-house experience with them.
+This documentation was created using `sphinx <https://www.sphinx-doc.org/en/master/>`_ which is a python-based documentation tool originally facilitating the documentation of Python projects but now used for manual production in general, a big example being `ReadTheDocs <https://readthedocs.org>`_ which adds templates and version control. Sphinx has powerful ways of embedding documentation from python functions, youtube tutorials, images etc. There are graphical tools for previewing (e.g. sublime) but little in-house experience with them.
 
 We have a sample environment for sphinx that works across a wide swath of our products. There is one catch, however, which is that sphinx works by introspection -- importing and interrogating the python package that is being documented. This means you the package and its dependencies have to be available. This makes it impossible for us to give out a single environment for sphinx.
 
@@ -45,7 +45,6 @@ markdown language, which provides for things like section headers, table of cont
 Tutorials and anuals are widely available
 
 Git and GitHub
---------------
 --------------
 The documentation is delivered through Git and GitHub. The basic actions you would need to be able to do are:
 #. Clone the repository containing the documentation.
